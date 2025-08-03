@@ -1,0 +1,26 @@
+challenge:
+  name: "Forbidden Archive"
+
+  author: "M4hd1Dbh"
+
+  category: web
+  difficulty: Medium
+
+  description: Deep within the digital catacombs lies the Forbidden Archive - a repository of ancient knowledge protected by arcane technology. The Archivists communicate in strange markup languages, and whisper of a hidden tome containing the greatest secret of all...
+
+  wave: 3
+
+  flags:
+    - { flag: "ghctf{XX3_1nj3ct10n_1s_3v1l}", case_sensitive: true }
+
+  need_deploy: true
+
+  topics:
+    - web development
+
+  tags:
+    - web
+
+deploy:
+  port: 12302
+  subdomain: forbidden-archive

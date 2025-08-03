@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maktabat Al-Hikmah - مكتبة الحكمة</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 50%, #355e44 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,122.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header .arabic {
+            font-size: 3rem;
+            font-family: 'Traditional Arabic', 'Arabic Typesetting', serif;
+            font-weight: normal;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .intro {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(26,71,42,0.03) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .intro h2 {
+            color: #1a472a;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro .verse {
+            font-size: 1.8rem;
+            color: #1a472a;
+            margin: 2rem 0;
+            font-family: 'Traditional Arabic', serif;
+            line-height: 2.2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro .translation {
+            font-style: italic;
+            color: #6c757d;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1a472a, #2d5a3d);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+        }
+
+        .feature-card h3 {
+            color: #1a472a;
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+
+        .feature-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .feature-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .scholars {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+        }
+
+        .scholars h2 {
+            color: #1a472a;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+
+        .scholars > p {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+
+        .scholar-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .scholar {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid #1a472a;
+            transition: all 0.3s ease;
+        }
+
+        .scholar:hover {
+            background: #f0f4f7;
+            transform: translateX(5px);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .scholar h4 {
+            color: #1a472a;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .scholar p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+
+        .announcement {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff5d6 100%);
+            border: 2px solid #f0d78c;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .announcement::before,
+        .announcement::after {
+            content: '✨';
+            position: absolute;
+            font-size: 2rem;
+            animation: sparkle 3s infinite;
+        }
+
+        .announcement::before {
+            top: 20px;
+            left: 30px;
+        }
+
+        .announcement::after {
+            bottom: 20px;
+            right: 30px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .announcement h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .announcement p {
+            color: #735c0f;
+            line-height: 1.8;
+        }
+
+        .platform-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px dashed #f0d78c;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1a472a;
+            display: block;
+        }
+
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f0d78c, #fff9e6, #f0d78c);
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(100%); }
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flame {
+            animation: flicker 2s infinite;
+            display: inline-block;
+            font-size: 1.8rem;
+            margin: 0 0.5rem;
+        }
+
+        @keyframes flicker {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.8; 
+                transform: scale(1.1);
+            }
+        }
+
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header .arabic {
+                font-size: 2.2rem;
+            }
+            
+            .intro {
+                padding: 2rem;
+            }
+            
+            .feature-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1><span class="arabic">مكتبة الحكمة</span></h1>
+            <h1>Maktabat Al-Hikmah</h1>
+            <p>The Digital House of Wisdom - Your Gateway to Islamic Knowledge</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <h2>Welcome to the Eternal Flame of Knowledge</h2>
+            <div class="verse">
+                وَقُل رَّبِّ زِدْنِي عِلْمًا
+            </div>
+            <p class="translation">"And say: My Lord, increase me in knowledge" - Surah Taha 20:114</p>
+            <p style="margin-top: 2rem;">
+                Our library preserves centuries of Islamic scholarship, from the companions of the Prophet ﷺ 
+                to contemporary scholars. The head librarian, Sheikh Abdullah Al-Hafiz, has dedicated his life 
+                to digitizing these precious manuscripts.
+            </p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="icon">📱</div>
+                <h3>Multi-Platform Access</h3>
+                <p>Access our vast collection from any device - desktop, tablet, or mobile. Our responsive platform ensures seamless reading whether you're at home or on your journey of knowledge.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔍</div>
+                <h3>Advanced Search</h3>
+                <p>Find exactly what you seek with our intelligent search system. Search by author, topic, era, or even specific verses and hadiths across thousands of manuscripts.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📝</div>
+                <h3>Interactive Learning</h3>
+                <p>Take notes, bookmark passages, and create your own study collections. Join discussion circles with scholars and students from around the world.</p>
+            </div>
+        </div>
+
+        <div class="announcement">
+            <h3>🌟 Platform Update 🌟</h3>
+            <p><strong>1 Muharram 1445 AH</strong></p>
+            <p>Sheikh Abdullah has launched new features including audio recitations, translation tools, and enhanced manuscript viewer with zoom capabilities. Join our growing community of knowledge seekers!</p>
+            
+            <div class="platform-stats">
+                <div class="stat">
+                    <span class="stat-number">10,000+</span>
+                    <span class="stat-label">Digital Manuscripts</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50,000+</span>
+                    <span class="stat-label">Active Learners</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">25</span>
+                    <span class="stat-label">Languages Supported</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Available Worldwide</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="scholars">
+            <h2>Digital Manuscript Collections</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+                Our scholars' works are organized in digital collections for easy access
+            </p>
+            <div class="scholar-list">
+                <div class="scholar">
+                    <!-- imam-malik/muwatta/info -->
+                    <h4>📖 Imam Malik - Al-Muwatta</h4>
+                    <p><strong>الموطأ</strong></p>
+                    <p>The first hadith collection arranged by fiqh topics</p>
+                    <p style="font-size: 0.85rem; color: #888;">Collection contains 1,832 hadiths</p>
+                </div>
+                <div class="scholar">
+                    <!-- ibn-taymiyyah/wasitiyyah/info -->
+                    <h4>📖 Ibn Taymiyyah - Al-Aqeedah Al-Wasitiyyah</h4>
+                    <p><strong>العقيدة الواسطية</strong></p>
+                    <p>Fundamental text on Islamic creed and belief</p>
+                    <p style="font-size: 0.85rem; color: #888;">Essential reading for understanding Aqeedah</p>
+                </div>
+                <div class="scholar">
+                    <!-- imam-ahmad/musnad/info -->
+                    <h4>📖 Imam Ahmad - Musnad Ahmad</h4>
+                    <p><strong>مسند أحمد</strong></p>
+                    <p>One of the largest hadith collections</p>
+                    <p style="font-size: 0.85rem; color: #888;">Over 27,000 narrations preserved</p>
+                </div>
+                <div class="scholar">
+                    <!-- al-bukhari/sahih/info -->
+                    <h4>📖 Al-Bukhari - Sahih Al-Bukhari</h4>
+                    <p><strong>صحيح البخاري</strong></p>
+                    <p>The most authentic book after the Quran</p>
+                    <p style="font-size: 0.85rem; color: #888;">7,563 carefully verified hadiths</p>
+                </div>
+                <div class="scholar">
+                    <!-- muslim/sahih/info -->
+                    <h4>📖 Muslim - Sahih Muslim</h4>
+                    <p><strong>صحيح مسلم</strong></p>
+                    <p>Second most authentic hadith collection</p>
+                    <p style="font-size: 0.85rem; color: #888;">Rigorous authentication methodology</p>
+                </div>
+                <div class="scholar">
+                    <!-- an-nawawi/forty-hadith/info -->
+                    <h4>📖 An-Nawawi - Al-Arba'in</h4>
+                    <p><strong>الأربعون النووية</strong></p>
+                    <p>Essential 42 hadiths for every Muslim</p>
+                    <p style="font-size: 0.85rem; color: #888;">Foundation of Islamic knowledge</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>© 1445 AH - Maktabat Al-Hikmah</p>
+        <p><span class="flame">🔥</span> The Eternal Flame Burns Forever <span class="flame">🔥</span></p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+            Preserving Islamic Knowledge in the Digital Age
+        </p>
+    </footer>
+
+</body>
+</html>

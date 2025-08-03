@@ -1,0 +1,35 @@
+challenge:
+  name: "Ret 2 nowhere"
+
+  author: "Younesfdj"
+
+  category: pwn
+
+  difficulty: easy
+
+  description: No win(), no problem
+
+  wave: 2
+
+  flags:
+    - {
+        flag: "ghctf{1_g3t_th0s3_g0os3bumps_3v3ryT1me_1_see_pop_rdi}",
+        case_sensitive: true,
+      }
+
+  need_deploy: true
+
+  topics:
+    - Binary Exploitation
+    - PWN
+    - Buffer overflow
+    - ROP
+
+  tags:
+    - Binary Exploitation
+    - PWN
+
+deploy:
+  port: 12603
+  subdomain: ret2nowhere
+  tcp: true # Indicates that this challenge uses TCP for communication

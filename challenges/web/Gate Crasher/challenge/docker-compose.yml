@@ -1,0 +1,13 @@
+version: "3.8"
+name: gate-crasher
+services:
+  gate-crasher:
+    build: .
+    ports:
+      - "12303:5000"
+    environment:
+      - FLAG=ghctf{SQL_1nj3ct10ns_m4st3r}
+    volumes:
+      - ./database:/app/database
+    restart: unless-stopped
+    container_name: gate-crasher-app

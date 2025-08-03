@@ -1,0 +1,27 @@
+challenge:
+  name: "Gate Crasher"
+  author: "M4hd1Dbh"
+
+  category: web
+  difficulty: easy
+
+  description:
+    It echoes something back… but what exactly? Maybe there’s more behind this form than meets the eye.
+    Sometimes silence is just the system thinking... or leakin.
+
+  wave: 1
+
+  flags: # Flags for the challenge
+    - { flag: "ghctf{SQL_1nj3ct10ns_m4st3r}", case_sensitive: true }
+
+  need_deploy: true
+
+  topics:
+    - web development
+
+  tags:
+    - web
+
+deploy:
+  port: 12303
+  subdomain: gate-crasher

@@ -1,0 +1,9 @@
+name: number-guesser
+
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "12306:5000"
+    restart: always

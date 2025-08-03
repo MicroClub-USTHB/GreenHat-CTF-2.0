@@ -1,0 +1,26 @@
+challenge:
+    name: "Run"
+
+    author: "!Yass, camatchoo"
+
+    category: osint
+
+    difficulty: medium
+
+    description: Ronin Hakim or as his friends call him, Wlid Boumerdes (a nickname he earned for his deep love of his hometown) is an avid athlete known for his passion for running, hiking, biking, and documenting his adventures on a platform for like-minded individuals. However Ronin's online activity suddenly stopped. He disappeared without a trace. Your mission is to retrace his steps. Go back to his last recorded area, the place where he frequently ran, which as far as we know was the last place he was seen. Search for clues in his digital trail and describe what you discover.
+
+    wave: 1
+
+    flags:
+        - {
+              flag: "ghctf{miles_away_but_never_left_boumerdes}",
+              case_sensitive: false,
+          }
+
+    need_deploy: false
+
+    topics:
+        - Osint
+
+    tags:
+        - Osint

@@ -1,0 +1,15 @@
+# Remove this line:
+# version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ratebender
+    container_name: ratebender-app
+    ports:
+      - "12317:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped

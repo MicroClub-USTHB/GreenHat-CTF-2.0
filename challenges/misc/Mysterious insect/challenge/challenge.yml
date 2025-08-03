@@ -1,0 +1,21 @@
+challenge:
+  name: Mysterious Insect
+  category: misc
+  author: 0k4r1n
+  difficulty: medium
+  description:
+    mysterious insect has sent us some puzzles and left behind this thing.
+    It contains a good story to listen to.
+    Follow the trail and reveal the hidden truth.
+  wave: 1
+  flags:
+    - {
+        flag: "ghctf{N0th1ng_b3tt3r_th4n_@_p0dc4st_1n_fr33_t1m3}",
+        case_sensitive: true,
+      }
+  need_deploy: false
+  tags:
+    - osint
+    - steganography
+    - mystery
+    - misc

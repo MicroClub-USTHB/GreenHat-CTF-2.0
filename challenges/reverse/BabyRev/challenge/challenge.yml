@@ -1,0 +1,23 @@
+challenge:
+    name: "BabyRev" # Challenge name
+
+    author: "Spinel99" # Author of the challenge
+
+    category: reverse # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+    difficulty: easy # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+    description: Your first step into the world of reverse engineering # Description of the challenge
+
+    wave: 1
+
+    flags: # Flags for the challenge
+        - { flag: "ghctf{H1dd3n_1n_pl41n_51ght}", case_sensitive: true } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+    need_deploy: false # Whether the challenge needs to be deployed or not
+
+    topics: # Topics are used to categorize challenges and can be used for filtering
+        - reverse engineering
+
+    tags: # Tags are used to categorize challenges and can be used for filtering
+        - reverse engineering

@@ -1,0 +1,28 @@
+challenge:
+    name: "NON alphaum" # Challenge name
+
+    author: "$h3rL0ck" # Author of the challenge
+
+    category: jailbreak # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+    difficulty: hard # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+    description: your keyboard isn't enough, find another way # Description of the challenge
+
+    wave: 3
+
+    flags: # Flags for the challenge
+        - { flag: "ghctf{l33t_n0n4lph4numb3r1c_h4ck1ng}", case_sensitive: true } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+    need_deploy: true # Whether the challenge needs to be deployed or not
+
+    topics: # Topics are used to categorize challenges and can be used for filtering
+        - jailbreak
+
+    tags: # Tags are used to categorize challenges and can be used for filtering
+        - jailbreak
+
+deploy:
+    subdomain: "non-alphaum" # Subdomain for the challenge, used for deployment
+    port: 14105
+    tcp: true # Whether the challenge uses TCP or HTTP, true for TCP, false for HTTP

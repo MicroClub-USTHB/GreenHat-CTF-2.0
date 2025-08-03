@@ -1,0 +1,25 @@
+challenge:
+  name: "Future Gadget 01 - PhoneWave"
+
+  author: "0k4r1n"
+
+  category: hardware
+
+  difficulty: easy
+
+  description:
+    Mayushi touched the cable of the screen of the PhoneWave, and now it’s not working.
+    You need to fix it so we can send you the D-Mail.
+
+  wave: 1
+
+  flags:
+    - { flag: "ghctf{TuTuRu_U_f1x3d_17}", case_sensitive: True }
+
+  need_deploy: false
+
+  topics:
+    - ESP32
+  tags:
+    - hardware
+    - logic analyzer

@@ -1,0 +1,25 @@
+challenge:
+    name: "Travel" # Challenge name
+
+    author: "Spinel99" # Author of the challenge
+
+    category: reverse # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+    difficulty: hard # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+    description: What do you do when you're travelling travelling ? # Description of the challenge
+    wave: 1
+
+    flags: # Flags for the challenge
+        - {
+              flag: "ghctf{0f_c0ur53_Y0u_P4ck_P4ck!_0f0f0f}",
+              case_sensitive: true,
+          } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+    need_deploy: false # Whether the challenge needs to be deployed or not
+
+    topics: # Topics are used to categorize challenges and can be used for filtering
+        - reverse engineering
+
+    tags: # Tags are used to categorize challenges and can be used for filtering
+        - reverse engineering

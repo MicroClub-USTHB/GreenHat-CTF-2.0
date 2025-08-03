@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Forbidden Archive</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .products { display: flex; gap: 20px; margin-top: 30px; }
+        .product { border: 1px solid #ddd; padding: 15px; border-radius: 5px; width: 30%; }
+        button { background: #4CAF50; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; }
+        #result { margin-top: 20px; padding: 15px; border: 1px solid #eee; min-height: 100px; }
+    </style>
+</head>
+<body>
+    <h1>The Forbidden Archive Catalog</h1>
+    <p>Select an archive collection to access restricted data:</p>
+    
+    <div class="products">
+        <div class="product">
+            <h3>Black Data Archive </h3>
+            <button onclick="getProduct(1)">View Details</button>
+        </div>
+        <div class="product">
+            <h3>Red Data Archive </h3>
+            <button onclick="getProduct(2)">View Details</button>
+        </div>
+        <div class="product">
+            <h3> Gold Data Archiv</h3>
+            <button onclick="getProduct(3)">View Details</button>
+        </div>
+    </div>
+    
+    <div id="result"></div>
+    
+    <script>
+        function getProduct(id) {
+            const xml = `
+                <productRequest>
+                    <id>${id}</id>
+                </productRequest>
+            `;
+            
+            fetch('/api', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/xml'
+                },
+                body: xml
+            })
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(data, "text/xml");
+                
+                // Check for error
+                const error = xmlDoc.getElementsByTagName("error");
+                if (error.length > 0) {
+                    document.getElementById("result").innerHTML = `<p style="color:red">${error[0].textContent}</p>`;
+                    return;
+                }
+                
+                // Display product info
+                const name = xmlDoc.getElementsByTagName("name")[0].textContent;
+                const price = xmlDoc.getElementsByTagName("price")[0].textContent;
+                const desc = xmlDoc.getElementsByTagName("description")[0].textContent;
+                
+                document.getElementById("result").innerHTML = `
+                    <h3>${name}</h3>
+                    <p><strong>Price:</strong> ${price}</p>
+                    <p><strong>Description:</strong> ${desc}</p>
+                `;
+            })
+            .catch(err => {
+                document.getElementById("result").innerHTML = `<p style="color:red">Error: ${err}</p>`;
+            });
+        }
+    </script>
+</body>
+</html>

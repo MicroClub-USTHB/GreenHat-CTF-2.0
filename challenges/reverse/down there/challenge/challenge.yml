@@ -1,0 +1,14 @@
+challenge:
+  name: "down there"
+  author: "0x_ax1m"
+  category: reverse
+  difficulty: easy
+  description: An image was used to exfiltrate hidden data, we managed to get the binary used for that.
+  wave: 2
+  need_deploy: false
+  flags:
+    - { flag: "ghctf{k0l_30tl4f1h4_kh1r3}", case_sensitive: true }
+  topics:
+    - Steganography, reverse engineering, exfiltrate, forensics
+  tags:
+    - reverse

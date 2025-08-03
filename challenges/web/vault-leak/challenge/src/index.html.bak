@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OLD Insecure Vault</title>
+    <style>
+        body { font-family: 'Comic Sans MS', cursive, sans-serif; background-color: #ffffcc; }
+        h1 { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Warning: OLD AND INSECURE VAULT</h1>
+    <p>This version is deprecated. Please use the new one.</p>
+    
+    <!-- 
+        TODO: Remove this flag before deploying to production!
+        It's super important that nobody finds this.
+        
+        ghctf{n3v3r_f0rg3t_y0ur_b4ckup5}
+    -->
+</body>
+</html>

@@ -1,0 +1,26 @@
+challenge:
+    name: "3ami said #2"
+
+    author: "camatchoo"
+
+    category: osint
+
+    difficulty: medium
+
+    description: Recently 3ami went on a business trip to visit an agricultural fair. With everything that's available online,find the hotel and you will find the flag.
+
+    wave: 2
+
+    flags:
+        - {
+              flag: "ghctf{b3_c4r3ful_w1th_wh4t_y0u_5h4r3_0nl1n3}",
+              case_sensitive: true,
+          }
+
+    need_deploy: false
+
+    topics:
+        - Osint
+
+    tags:
+        - Osint

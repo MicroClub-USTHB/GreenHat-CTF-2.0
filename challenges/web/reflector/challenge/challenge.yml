@@ -1,0 +1,18 @@
+challenge:
+  name: "Reflector"
+  author: "D4rk0o"
+  category: web
+  difficulty: easy
+  description: "Can you access the admin page? Running on port 5000"
+  wave: 2
+  need_deploy: true
+  flags:
+    - { flag: "ghctf{i_l0v3_sSsrF_sr5}", case_sensitive: true }
+  topics:
+    - ssrf
+  tags:
+    - web
+
+deploy:
+  port: 12304
+  subdomain: refactor

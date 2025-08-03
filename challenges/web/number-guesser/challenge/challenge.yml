@@ -1,0 +1,18 @@
+challenge:
+  name: "Number Guesser"
+  author: "D4rk0o"
+  category: web
+  difficulty: easy
+  description: "I'm thinking of a number between 1 and 100. Can you guess it?"
+  wave: 1
+  need_deploy: true
+  flags:
+    - { flag: "ghctf{th3_r34l_pr1z3_w4snt_th3_numb3r}", case_sensitive: true }
+  topics:
+    - Cookies
+  tags:
+    - web
+
+deploy:
+  port: 12306
+  subdomain: number-guesser

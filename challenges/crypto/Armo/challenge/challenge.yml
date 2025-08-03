@@ -1,0 +1,30 @@
+challenge:
+  name: "Armo" # Challenge name
+
+  author: "5h4rkoo" # Author of the challenge
+
+  category: crypto # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+  difficulty: medium # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+  description: "Rearrange the following equations to get the primes p,q
+    N=p⋅q
+    c1=(2p+3q)^e1 mod N
+    c2=(5p+7q)^e2 mod N
+    flag format ghctf{p,q}" # Description of the challenge
+
+  wave: 1 # Deployment wave number
+
+  flags: # Flags for the challenge
+    - {
+        flag: "ghctf{112274000169258486390262064441991200608556376127408952701514962644340921899196091557519382763356534106376906489445103255177593594898966250176773605432765983897105047795619470659157057093771407309168345670541418772427807148039207489900810013783673957984006269120652134007689272484517805398390277308001719431273,132760587806365301971479157072031448380135765794466787456948786731168095877956875295282661565488242190731593282663694728914945967253173047324353981530949360031535707374701705328450856944598803228299967009004598984671293494375599408764139743217465012770376728876547958852025425539298410751132782632817947101601}",
+        case_sensitive: true,
+      } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+  need_deploy: false # Whether the challenge needs to be deployed or not
+
+  topics: # Topics are used to categorize challenges and can be used for filtering
+    - crypto
+
+  tags: # Tags are used to categorize challenges and can be used for filtering
+    - crypto

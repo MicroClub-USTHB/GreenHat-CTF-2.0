@@ -1,0 +1,23 @@
+challenge:
+  name: "Cold Cash"
+  author: "D4rk0o"
+  category: web
+  difficulty: medium
+  description: |
+    We opened icy shop and Palmer—fresh off the Club World Cup win—gives you 10% off with PALMER10.
+    Our checkout’s a bit glitchy… can you turn that discount into a fortune? 10%!! off
+
+  wave: 2
+
+  need_deploy: true
+  flags:
+    - { flag: "ghctf{j4va_M4ster_Gl1tch3er!!}", case_sensitive: true }
+  topics:
+    - Web Exploitation
+    - Logic Flaw
+  tags:
+    - web
+
+deploy:
+  port: 12301
+  subdomain: cold-cash

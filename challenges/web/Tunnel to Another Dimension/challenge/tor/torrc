@@ -1,0 +1,5 @@
+Log notice stdout
+
+HiddenServiceDir /var/lib/tor/hidden_service/
+HiddenServicePort 80 nginx:80
+

@@ -1,0 +1,17 @@
+challenge:
+  name: "Vault Leak"
+  author: "D4rk0o"
+  category: web
+  difficulty: easy
+  description: "The old, leaky version is gone for good… or so they say."
+  wave: 2
+  need_deploy: true
+  flags:
+    - { flag: "ghctf{n3v3r_f0rg3t_y0ur_b4ckup5}", case_sensitive: true }
+  topics:
+    - Web development
+  tags:
+    - web
+deploy:
+  port: 12309
+  subdomain: vault-leak

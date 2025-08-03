@@ -1,0 +1,7 @@
+name: non-alphaum
+version: "3.8"
+services:
+  challenge:
+    build: .
+    ports:
+      - "14105:1337"

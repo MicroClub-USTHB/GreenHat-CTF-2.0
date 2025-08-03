@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 96,
+      "left": -158.36,
+      "attrs": { "fastTLS": "1" }
+    },
+    {
+      "type": "wokwi-ili9341",
+      "id": "lcd1",
+      "top": 34.2,
+      "left": 88.1,
+      "rotate": 90,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h-19.2", "v91.54" ] ],
+    [ "lcd1:RST", "esp:4", "purple", [ "h-48", "v67.2" ] ],
+    [ "lcd1:D/C", "esp:2", "#8f4814", [ "h-28.8", "v44.14" ] ],
+    [ "lcd1:SCK", "esp:18", "gray", [ "v-0.01", "h-48", "v-19.2" ] ],
+    [ "lcd1:MISO", "esp:19", "orange", [ "h-67.2", "v-9.61", "h0", "v-19.2" ] ],
+    [ "lcd1:MOSI", "esp:23", "green", [ "h-38.4", "v-67.31" ] ],
+    [ "esp:5V", "lcd1:VCC", "red", [ "h-21.83", "v-206.3", "h201.6", "v48.5" ] ],
+    [ "lcd1:CS", "esp:15", "violet", [ "h-57.6", "v105.6" ] ]
+  ],
+  "dependencies": {}
+}

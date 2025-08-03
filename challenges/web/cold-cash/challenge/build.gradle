@@ -1,0 +1,43 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.1'
+	id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'gg.ctf'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    // This ensures the code is compiled for Java 17, matching our Docker image
+    sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    // Provides everything for a web application (Tomcat, Spring MVC, etc.)
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    
+    // Provides the template engine for shop.html
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    
+    // Provides the HttpSession class and other servlet APIs. This is important.
+    implementation 'jakarta.servlet:jakarta.servlet-api'
+}
+
+// THIS IS THE CRITICAL FIX
+// This block tells Gradle how to build the executable JAR
+tasks.named('bootJar') {
+    // This sets the main class, fixing the "no main manifest" error
+    mainClass = 'gg.ctf.cold.Application'
+    
+    // This gives the output JAR a clean, predictable name
+    archiveFileName = 'cold-cash.jar'
+}
+
+// We can disable the test task since we don't have tests
+tasks.named('test') {
+    enabled = false
+}

@@ -1,0 +1,25 @@
+challenge:
+  name: jUsT_d1sApeArD
+
+  author: M0uИ1R
+
+  category: misc
+
+  difficulty: medium
+
+  description: >
+    you are a cybersecurity analyst, and you have been assigned to investigate the disappearance of a former message.
+    We've just captured a traffic, your mission is to find the secreeeet message.
+
+  wave: 3
+
+  flags:
+    - { flag: "ghctf{can_y0u_see_me??}", case_sensitive: true }
+
+  need_deploy: false
+
+  topics:
+    - Misc
+
+  tags:
+    - Misc

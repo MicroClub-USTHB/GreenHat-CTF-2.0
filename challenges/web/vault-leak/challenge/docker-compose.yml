@@ -1,0 +1,8 @@
+name: vault-leak
+
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "12309:80"

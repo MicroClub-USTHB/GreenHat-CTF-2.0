@@ -1,0 +1,467 @@
+{% extends "base.html" %} {% block title %}Admin Panel - SecureApp{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <!-- Admin Sidebar -->
+    <div class="col-lg-3 mb-4">
+      <div class="sidebar p-4">
+        <div class="profile-card text-center mb-4">
+          <i class="fas fa-user-shield fa-3x mb-3"></i>
+          <h5>Admin Panel</h5>
+          <span class="admin-badge">Administrator</span>
+        </div>
+
+        <nav class="nav flex-column">
+          <a
+            class="nav-link active"
+            href="#"
+            onclick="showAdminSection('overview')"
+          >
+            <i class="fas fa-chart-bar me-2"></i>Overview
+          </a>
+          <a class="nav-link" href="#" onclick="showAdminSection('users')">
+            <i class="fas fa-users me-2"></i>All Users
+          </a>
+          <a class="nav-link" href="#" onclick="showAdminSection('articles')">
+            <i class="fas fa-file-alt me-2"></i>All Articles
+          </a>
+          <a
+            class="nav-link"
+            href="#"
+            onclick="showAdminSection('create-admin-article')"
+          >
+            <i class="fas fa-plus-circle me-2"></i>Create Admin Article
+          </a>
+          <a class="nav-link" href="#" onclick="showAdminSection('flag')">
+            <i class="fas fa-flag me-2"></i>Get Flag
+          </a>
+          <a
+            class="nav-link"
+            href="#"
+            onclick="window.location.href='/dashboard'"
+          >
+            <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Admin Main Content -->
+    <div class="col-lg-9">
+      <div class="main-content">
+        <!-- Overview Section -->
+        <div id="overview-section" class="admin-content-section">
+          <h3><i class="fas fa-chart-bar me-2"></i>Admin Overview</h3>
+          <hr />
+
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <div class="stats-card">
+                <i class="fas fa-users fa-2x text-primary mb-2"></i>
+                <h4 id="totalUsers">-</h4>
+                <p class="text-muted">Total Users</p>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="stats-card">
+                <i class="fas fa-file-alt fa-2x text-success mb-2"></i>
+                <h4 id="totalArticles">-</h4>
+                <p class="text-muted">Total Articles</p>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="stats-card">
+                <i class="fas fa-flag fa-2x text-danger mb-2"></i>
+                <h4>CTF</h4>
+                <p class="text-muted">Challenge</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Users Section -->
+        <div
+          id="users-section"
+          class="admin-content-section"
+          style="display: none"
+        >
+          <h3><i class="fas fa-users me-2"></i>All Users Contacts</h3>
+          <hr />
+          <div id="usersContainer">
+            <!-- Users will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Articles Section -->
+        <div
+          id="articles-section"
+          class="admin-content-section"
+          style="display: none"
+        >
+          <h3><i class="fas fa-file-alt me-2"></i>All Articles</h3>
+          <hr />
+          <div id="adminArticlesContainer">
+            <!-- Articles will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Create Admin Article Section -->
+        <div
+          id="create-admin-article-section"
+          class="admin-content-section"
+          style="display: none"
+        >
+          <h3><i class="fas fa-plus-circle me-2"></i>Create Admin Article</h3>
+          <hr />
+
+          <div class="card">
+            <div class="card-body">
+              <form id="createAdminArticleForm">
+                <div class="mb-3">
+                  <label for="adminArticleTitle" class="form-label"
+                    >Title</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="adminArticleTitle"
+                    name="title"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="adminArticleContent" class="form-label"
+                    >Content</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="adminArticleContent"
+                    name="content"
+                    rows="8"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save me-2"></i>Create Admin Article
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flag Section -->
+        <div
+          id="flag-section"
+          class="admin-content-section"
+          style="display: none"
+        >
+          <h3><i class="fas fa-flag me-2"></i>CTF Flag</h3>
+          <hr />
+
+          <div class="card">
+            <div class="card-body text-center">
+              <i class="fas fa-flag fa-3x text-danger mb-3"></i>
+              <h5>Retrieve CTF Flag</h5>
+              <p class="text-muted">
+                Click the button below to get the flag (if you're lucky!)
+              </p>
+              <button id="getFlagBtn" class="btn btn-danger btn-lg">
+                <i class="fas fa-flag me-2"></i>Get Flag
+              </button>
+              <div id="flagResult" class="mt-4" style="display: none">
+                <div class="alert alert-success">
+                  <h6>Flag Retrieved:</h6>
+                  <code id="flagValue"></code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script>
+  if (localStorage.getItem("flagTimeOut")) {
+    const flagTimeOut = parseInt(localStorage.getItem("flagTimeOut"));
+    if (Date.now() < flagTimeOut) {
+      document.getElementById("getFlagBtn").disabled = true;
+      document.getElementById("flagResult").style.display = "block";
+      document.getElementById("flagValue").textContent =
+        "You can only get the flag once every 60 seconds.";
+    }
+  }
+
+  // Check if user has admin privileges
+  async function checkAdminAuth() {
+    const token = getToken();
+    if (!token) {
+      window.location.href = "/login";
+      return false;
+    }
+
+    try {
+      const response = await makeAuthenticatedRequest("/api/profile");
+      if (response.ok) {
+        const user = await response.json();
+        if (!user.is_admin) {
+          toastr.error("Admin access required");
+          window.location.href = "/dashboard";
+          return false;
+        }
+        return true;
+      } else {
+        window.location.href = "/login";
+        return false;
+      }
+    } catch (error) {
+      window.location.href = "/login";
+      return false;
+    }
+  }
+
+  // Show/hide admin sections
+  function showAdminSection(sectionName) {
+    // Hide all sections
+    document.querySelectorAll(".admin-content-section").forEach((section) => {
+      section.style.display = "none";
+    });
+
+    // Remove active class from all nav links
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      link.classList.remove("active");
+    });
+
+    // Show selected section
+    document.getElementById(sectionName + "-section").style.display = "block";
+
+    // Add active class to clicked nav link
+    if (event) event.target.classList.add("active");
+
+    // Load section-specific data
+    switch (sectionName) {
+      case "overview":
+        loadOverviewStats();
+        break;
+      case "users":
+        loadAllUsers();
+        break;
+      case "articles":
+        loadAllArticles();
+        break;
+    }
+  }
+
+  // Load overview statistics
+  async function loadOverviewStats() {
+    try {
+      // Load users
+      const usersResponse = await makeAuthenticatedRequest("/api/admin/users");
+      if (usersResponse.ok) {
+        const usersData = await usersResponse.json();
+        document.getElementById("totalUsers").textContent =
+          usersData.users.length;
+      }
+
+      // Load articles
+      const articlesResponse = await makeAuthenticatedRequest(
+        "/api/admin/articles"
+      );
+      if (articlesResponse.ok) {
+        const articlesData = await articlesResponse.json();
+        document.getElementById("totalArticles").textContent =
+          articlesData.articles.length;
+      }
+    } catch (error) {
+      console.error("Error loading stats:", error);
+    }
+  }
+
+  // Load all users
+  async function loadAllUsers() {
+    try {
+      const response = await makeAuthenticatedRequest("/api/admin/users");
+      if (response.ok) {
+        const data = await response.json();
+        displayUsers(data.users);
+      } else {
+        toastr.error("Failed to load users");
+      }
+    } catch (error) {
+      toastr.error("Error loading users");
+    }
+  }
+
+  // Display users
+  function displayUsers(users) {
+    const container = document.getElementById("usersContainer");
+    if (users.length === 0) {
+      container.innerHTML = '<p class="text-muted">No users found.</p>';
+      return;
+    }
+
+    container.innerHTML = `
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${users
+                      .map(
+                        (user) => `
+                        <tr>
+                            <td>${user.id}</td>
+                            <td>${user.email}</td>
+                            <td>
+                                <span class="badge bg-success">Active</span>
+                            </td>
+                        </tr>
+                    `
+                      )
+                      .join("")}
+                </tbody>
+            </table>
+        </div>
+    `;
+  }
+
+  // Load all articles
+  async function loadAllArticles() {
+    try {
+      const response = await makeAuthenticatedRequest("/api/admin/articles");
+      if (response.ok) {
+        const data = await response.json();
+        displayAdminArticles(data.articles);
+      } else {
+        toastr.error("Failed to load articles");
+      }
+    } catch (error) {
+      toastr.error("Error loading articles");
+    }
+  }
+
+  // Display admin articles
+  function displayAdminArticles(articles) {
+    const container = document.getElementById("adminArticlesContainer");
+    if (articles.length === 0) {
+      container.innerHTML = '<p class="text-muted">No articles found.</p>';
+      return;
+    }
+
+    container.innerHTML = articles
+      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+      .sort((a, b) => a.admin_only - b.admin_only)
+      .map(
+        (article) => `
+        <div class="article-card card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <h5 class="card-title">${article.title}</h5>
+                        <p class="card-text">${article.content.substring(
+                          0,
+                          150
+                        )}...</p>
+                        <small class="text-muted">
+                            By: ${article.author_id} | Created: ${new Date(
+          article.created_at
+        ).toLocaleDateString()}
+                        </small>
+                    </div>
+                    <div>
+                        ${
+                          article.admin_only
+                            ? '<span class="badge bg-danger">Admin Only</span>'
+                            : '<span class="badge bg-secondary">Public</span>'
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+      )
+      .join("");
+  }
+
+  // Handle create admin article form
+  document
+    .getElementById("createAdminArticleForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const response = await makeAuthenticatedRequest(
+          "/api/admin/create_admin_article",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          }
+        );
+
+        const result = await response.json();
+
+        if (response.ok) {
+          toastr.success(result.message);
+          this.reset();
+          showAdminSection("articles");
+        } else {
+          toastr.error(result.error);
+        }
+      } catch (error) {
+        console.error("Error creating admin article:", error);
+        toastr.error("Failed to create admin article");
+      }
+    });
+
+  // Handle get flag button
+  document
+    .getElementById("getFlagBtn")
+    .addEventListener("click", async function () {
+      try {
+        const response = await makeAuthenticatedRequest("/api/admin/flag");
+        const result = await response.json();
+
+        if (response.ok) {
+          document.getElementById("flagValue").textContent = result.flag;
+          document.getElementById("flagResult").style.display = "block";
+          document.getElementById("flagResult").style.color = "#4caf50";
+          document.getElementById("getFlagBtn").disabled = true;
+          localStorage.setItem("flagTimeOut", Date.now() + 60 * 1000); // Store timeout for 60 seconds
+
+          setTimeout(() => {
+            document.getElementById("getFlagBtn").disabled = false;
+          }, 60 * 1000); // Re-enable button after 60 seconds
+
+          if (result.has_luck) {
+            toastr.success("Flag retrieved successfully!");
+          } else {
+            toastr.warning("You were not lucky this time. Try again later.");
+          }
+        } else {
+          toastr.error(result.error);
+        }
+      } catch (error) {
+        toastr.error("Failed to get flag");
+      }
+    });
+
+  // Initialize admin panel
+  document.addEventListener("DOMContentLoaded", async function () {
+    const hasAccess = await checkAdminAuth();
+    if (hasAccess) {
+      loadOverviewStats();
+    }
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,26 @@
+challenge:
+  name: "RotCow" # Challenge name
+
+  author: "5h4rkoo & x3n4" # Author of the challenge
+
+  category: crypto # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+  difficulty: easy # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+  description: Even cows know how to encrypt their messages. Can you figure out how they do it? # Description of the challenge
+
+  wave: 2 # Wave number for the challenge
+
+  flags: # Flags for the challenge
+    - {
+        flag: "ghctf{Wh3n_C0w5_3nc0d3_Y0ur_M3ss4g3_Y0u_N33d_4_M00_D3crypt0r}",
+        case_sensitive: true,
+      } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+  need_deploy: false # Whether the challenge needs to be deployed or not
+
+  topics: # Topics are used to categorize challenges and can be used for filtering
+    - crypto
+
+  tags: # Tags are used to categorize challenges and can be used for filtering
+    - crypto

@@ -1,0 +1,8 @@
+name: refactor
+
+services:
+  web:
+    build: .
+    ports:
+      - "12304:5000"
+    restart: always

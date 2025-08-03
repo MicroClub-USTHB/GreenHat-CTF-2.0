@@ -1,0 +1,27 @@
+challenge:
+  name: "Tunnel to Another Dimension" # Challenge name
+
+  author: "COn4n" # Author of the challenge
+
+  category: web # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+  difficulty: medium # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+  description: Can this challenge send me to another dimension? # Description of the challenge
+
+  wave: 3 # Wave number for the challenge
+
+  flags: # Flags for the challenge
+    - { flag: "ghctf{TunN31_TO_darK_wEb}", case_sensitive: true } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+  need_deploy: true # Whether the challenge needs to be deployed or not
+
+  topics: # Topics are used to categorize challenges and can be used for filtering
+    - web development
+
+  tags: # Tags are used to categorize challenges and can be used for filtering
+    - web
+
+deploy:
+  port: 12315
+  subdomain: another-dimension

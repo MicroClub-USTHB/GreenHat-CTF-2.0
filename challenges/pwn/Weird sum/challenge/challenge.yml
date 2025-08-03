@@ -1,0 +1,31 @@
+challenge:
+  name: "Weird Sum"
+
+  author: "Younesfdj"
+
+  category: pwn
+
+  difficulty: easy
+
+  description: How can a sum of two positive numbers equal a negative number ? Integers fooling
+
+  wave: 1
+
+  flags:
+    - { flag: "ghctf{1nt3ger_0v3rfl0w_m3rcyyyyyy}", case_sensitive: true }
+
+  need_deploy: true
+
+  topics:
+    - Binary Exploitation
+    - PWN
+    - Integer overflow
+
+  tags:
+    - Binary Exploitation
+    - PWN
+
+deploy:
+  port: 12606
+  subdomain: weird-sum
+  tcp: true # Indicates that this challenge uses TCP for communication

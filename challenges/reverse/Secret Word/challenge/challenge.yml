@@ -1,0 +1,30 @@
+challenge:
+    name: "Secret Word" # Challenge name
+
+    author: "Spinel99" # Author of the challenge
+
+    category: reverse # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+    difficulty: medium # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+    description: Can you know the secret word ? # Description of the challenge
+    wave: 1
+
+    flags: # Flags for the challenge
+        - {
+              flag: "ghctf{R1ght_1nt0_th3_h34rt_0f_th3_pr0t0c0l}",
+              case_sensitive: true,
+          } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+    need_deploy: true # Whether the challenge needs to be deployed or not
+
+    topics: # Topics are used to categorize challenges and can be used for filtering
+        - reverse engineering
+
+    tags: # Tags are used to categorize challenges and can be used for filtering
+        - reverse engineering
+
+deploy: # Deployment section for the challenge
+    port: 13800
+    subdomain: secret-word
+    tcp: true # Indicates that this challenge uses TCP for communication

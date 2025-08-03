@@ -1,0 +1,2 @@
+- search for side channel attack
+- once u applie ur code to the binary, submit the pin in the instance the pin is 48390513

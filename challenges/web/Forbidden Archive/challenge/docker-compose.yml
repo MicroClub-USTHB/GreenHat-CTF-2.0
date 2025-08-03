@@ -1,0 +1,20 @@
+version: "3.8"
+name: forbidden-archive
+services:
+  forbidden-archive:
+    build: .
+    container_name: forbidden-archive
+    ports:
+      - "12302:5003"
+    environment:
+      - FLASK_ENV=production
+    restart: unless-stopped
+    volumes:
+      # Mount flag.txt as read-only to prevent accidental modification
+      - ./flag.txt:/app/flag.txt:ro
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:5003/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

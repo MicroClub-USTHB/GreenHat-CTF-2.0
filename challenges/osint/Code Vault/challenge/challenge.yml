@@ -1,0 +1,23 @@
+challenge:
+    name: "Code vault"
+
+    author: "camatchoo"
+
+    category: osint
+
+    difficulty: easy
+
+    description: On February 2nd 2020 at midnight GitHub captured a snapshot of the existing state of all active public repositories of its platform in order to preserve them in the Arctic Code Vault in Svalbard, Norway. A former Micro Club memeber was happy to write an article about it and to include his small pokédex project in the vault. Can you find the 2 pokemons that were in his project? flag format is ghctf{pokemon1_pokemon2}
+
+    wave: 2
+
+    flags:
+        - { flag: "ghctf{alakazam_gengar}", case_sensitive: false }
+
+    need_deploy: false
+
+    topics:
+        - Osint
+
+    tags:
+        - Osint

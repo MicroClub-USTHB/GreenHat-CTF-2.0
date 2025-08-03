@@ -1,0 +1,15 @@
+name: Secret Word
+
+services:
+  secret-word:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "13800:13800"
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    stdin_open: false
+    tty: false

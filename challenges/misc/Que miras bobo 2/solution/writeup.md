@@ -1,0 +1,2 @@
+Just replace the all-zero quantization tables with any standard JPEG quantization matrix.  
+You can use [this resource as a reference](https://www.sciencedirect.com/topics/computer-science/quantization-table)

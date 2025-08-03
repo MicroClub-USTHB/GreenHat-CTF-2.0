@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f9fafb;
+        color: #1f2937;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      form {
+        max-width: 400px;
+        width: 100%;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e5e7eb;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #374151;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: 1px solid #d1d5db;
+        background-color: #f9fafb;
+        font-size: 16px;
+        color: #374151;
+        transition: border-color 0.2s;
+      }
+      input[type="text"]:focus {
+        outline: none;
+        border-color: #3b82f6;
+        background-color: #ffffff;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      button:hover {
+        background-color: #2563eb;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form action="/submit" method="POST">
+      <label for="text">Enter your text:</label>
+      <input type="text" id="text" name="text" required />
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      // Initialize toastr options
+      const toastrOptions = {
+        closeButton: true,
+        progressBar: true,
+        positionClass: "toast-top-right",
+        timeOut: "5000",
+        extendedTimeOut: "1000",
+      };
+      toastr.options = toastrOptions;
+
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const text = document.getElementById("text").value;
+          fetch("/submit", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `text=${encodeURIComponent(text)}`,
+          })
+            .then((response) => {
+              //check response code
+              if (!response.ok) {
+                toastr.error(
+                  "Error: " + response.statusText + " (" + response.status + ")"
+                );
+                throw new Error("Network response was not ok");
+              } else {
+                return response.json();
+              }
+            })
+            .then((data) => {
+              if (data.success) {
+                toastr.success("Text submitted successfully!");
+              } else {
+                toastr.error("Error: " + data.error);
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+    </script>
+  </body>
+</html>

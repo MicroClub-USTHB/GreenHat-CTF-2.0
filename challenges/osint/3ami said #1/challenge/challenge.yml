@@ -1,0 +1,26 @@
+challenge:
+    name: "3ami said #1"
+
+    author: "camatchoo"
+
+    category: osint
+
+    difficulty: easy
+
+    description: After a lot of convincing from his son Said lekhdaari bought a smartphone and got into social media, his son taught him how to post. However he is not quite good at it. Can you find the flag in his socials ? (the flag has 4 parts)
+
+    wave: 1
+
+    flags:
+        - {
+              flag: "ghctf{5h3rl0ck3d_y0ur_w4y_1nt0_3am1_Sa1d5_4cc0unt5}",
+              case_sensitive: true,
+          }
+
+    need_deploy: false
+
+    topics:
+        - Osint
+
+    tags:
+        - Osint

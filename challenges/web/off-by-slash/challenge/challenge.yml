@@ -1,0 +1,30 @@
+challenge:
+  name: "Off By Slash" # Challenge name
+
+  author: "Zeref" # Author of the challenge
+
+  category: web # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+  difficulty: easy # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+  description: This is just a test challenge. # Description of the challenge
+
+  wave: 1 # Wave number for the challenge
+
+  flags: # Flags for the challenge
+    - {
+        flag: "ghctf{n61nx_3xpr3ss_p4th_tr4v3rs4l_m4st3r}",
+        case_sensitive: true,
+      } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+  need_deploy: true # Whether the challenge needs to be deployed or not
+
+  topics: # Topics are used to categorize challenges and can be used for filtering
+    - web development
+
+  tags: # Tags are used to categorize challenges and can be used for filtering
+    - web
+
+deploy:
+  port: 12321
+  subdomain: off-by-slash

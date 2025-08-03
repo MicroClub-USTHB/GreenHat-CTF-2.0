@@ -1,0 +1,29 @@
+challenge:
+    name: "Traces"
+
+    author: "camatchoo, !Yass"
+
+    category: misc
+
+    difficulty: hard
+
+    description: During his usual afternoon rounds at the club's HQ, Kenpatchi heard a strange noise echoing from one of the local. Curious, he went to investigate only to find the place in a mess and a mysterious bear-like figure escaping through the window. Kenpatchi gave chase, but the intruder was too fast. Luckily, the bear was clumsy  it dropped a badge, and even more interestingly, a strange broken device that resembled a phone.The device emitted a weird signal and loud static pulsse before powering down. That signal was intercepted and recorded as a file, now stored somewhere among the images in the club's Discord server. Looks like this bear leaves more than just paw prints.... Trace the intruder and recover the flag.
+
+    wave: 1
+
+    flags:
+        - {
+              flag: "ghctf{Y0Ur_Pr1V4t3_r3P05_4r3Nt_TH47_Pr1V4t3}",
+              case_sensitive: true,
+          }
+
+    need_deploy: false
+
+    topics:
+        - Osint
+        - Misc
+        - Forensics
+
+    tags:
+        - Osint
+        - Misc

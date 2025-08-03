@@ -1,0 +1,26 @@
+challenge:
+  name: "LayerCake" # Challenge name
+
+  author: "5h4rkoo" # Author of the challenge
+
+  category: crypto # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+  difficulty: easy # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+  description: Many layers, many bases. Only one true flag beneath. # Description of the challenge
+
+  wave: 1 # Deployment wave number
+
+  flags: # Flags for the challenge
+    - {
+        flag: "ghctf{M0r3_B4s3s_D03sN_t_M34n_M0r3_S3cur1ty}",
+        case_sensitive: true,
+      } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+  need_deploy: false # Whether the challenge needs to be deployed or not
+
+  topics: # Topics are used to categorize challenges and can be used for filtering
+    - crypto
+
+  tags: # Tags are used to categorize challenges and can be used for filtering
+    - crypto

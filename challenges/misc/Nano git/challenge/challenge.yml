@@ -1,0 +1,33 @@
+challenge:
+  name: "Nano git"
+
+  author: "younesfdj"
+
+  category: misc
+
+  difficulty: easy
+
+  description: Mahdi loves open source and goes by mahdicalvine on GitHub.
+    He is working on a uni project and wants to check that everything is working fine in his commit!!
+    Everytime he commits to his github reporsitory, he checks mannualy by bundling the repo and upload it in
+    a website he made, can you teach Mahdi how to automate his workflow?
+
+  wave: 1
+
+  flags:
+    - {
+        flag: "ghctf{d1dnt_m1ss_y0uR_61t_617hub_w0rksh0p_r1gh7???}",
+        case_sensitive: true,
+      }
+
+  need_deploy: true
+
+  topics:
+    - Misc
+
+  tags:
+    - Misc
+
+deploy:
+  port: 13500
+  subdomain: nano-git

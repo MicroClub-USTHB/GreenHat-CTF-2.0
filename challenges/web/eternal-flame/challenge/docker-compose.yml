@@ -1,0 +1,8 @@
+name: eternal-flame
+
+services:
+  web:
+    build: .
+    ports:
+      - "12389:80"
+    restart: unless-stopped

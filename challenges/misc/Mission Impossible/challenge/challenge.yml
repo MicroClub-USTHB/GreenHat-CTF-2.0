@@ -1,0 +1,28 @@
+challenge:
+  name: "Mission Impossible" # Challenge name
+
+  author: "M0uИ1R x COn4n" # Author of the challenge
+
+  category: misc # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+  difficulty: medium # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+  description: "After breaching the HR office, our hackers got their hands on a sensitive CSV database containing detailed records of all company employees full names, email addresses, phone numbers, and more\n\nYour mission is to dig into this leaked data, identify a way in, and breach the main company server. The database might contain just what you need, if you know how to look\n\nNote: This is a real world scenarion, so it might require some patience , creative thinking, and a bit of luck to find the right path to success.\n\nGood luck!" # Description of the challenge
+
+  wave: 2 # Deployment wave number
+
+  flags: # Flags for the challenge
+    - { flag: "ghctf{T1m3_cAn_MaK3_D1ff3r3nce!}", case_sensitive: true } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+  need_deploy: true # Whether the challenge needs to be deployed or not
+
+  topics: # Topics are used to categorize challenges and can be used for filtering
+    - ssh
+
+  tags: # Tags are used to categorize challenges and can be used for filtering
+    - ssh
+
+deploy:
+  port: 13502
+  subdomain: mission-impossible
+  tcp: true # Indicates that this challenge uses TCP for communication

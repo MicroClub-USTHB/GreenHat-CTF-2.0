@@ -1,0 +1,21 @@
+challenge:
+  name: "RateBender"
+  author: "M4hd1Dbh"
+  category: web
+  description: Your goal is to bypass multiple security layers and access the protected flag.
+  difficulty: medium
+  wave: 2
+  flags:
+    - {
+        flag: "ghctf{N3XT_JWT_ALG0_CONF5ION_CSRF_BYPA55_2023}",
+        case_sensitive: true,
+      }
+  need_deploy: true
+  topics:
+    - web development
+  tags:
+    - web
+
+deploy:
+  port: 12317
+  subdomain: RateBender

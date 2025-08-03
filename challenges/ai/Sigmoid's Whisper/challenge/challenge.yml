@@ -1,0 +1,26 @@
+challenge:
+    name: "Sigmoid's Whisper" # Challenge name
+
+    author: "Bahae" # Author of the challenge
+
+    category: ai # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+    difficulty: medium # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+    description: What can be in those fancy models? # Description of the challenge
+
+    wave: 1 # Deployment wave number
+
+    flags: # Flags for the challenge
+        - {
+              flag: "ghctf{K3r4s_L4mbd4_1nj3ct10n_1s_n0t_s0_s4f3}",
+              case_sensitive: true,
+          } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+    need_deploy: false # Whether the challenge needs to be deployed or not
+
+    topics: # Topics are used to categorize challenges and can be used for filtering
+        - Artificial Intelligence
+
+    tags: # Tags are used to categorize challenges and can be used for filtering
+        - ai

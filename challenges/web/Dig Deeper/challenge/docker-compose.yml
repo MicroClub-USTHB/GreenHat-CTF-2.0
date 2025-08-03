@@ -1,0 +1,25 @@
+name: Dig Deeper
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile # Use the Dockerfile in the current directory
+
+    environment: # Environment variables for the app
+      - FLASK_ENV=development
+      - JWT_SECRET=0X8_L3F7_21RX # Replace with your actual JWT secret
+      - DECRYPTION_KEY=412b3c4d5e6f7g8h9i0j # Replace with your actual decryption key
+      - PORT=8000
+
+    ports: # Map port 8000 of the container to port 8000 on the host
+      - "12308:8000"
+
+    restart: unless-stopped # Restart policy for the container
+
+    volumes:
+      - db_data:/app/data # Mount a volume for persistent data storage
+
+volumes:
+  db_data:
+    driver: local

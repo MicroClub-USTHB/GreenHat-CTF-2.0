@@ -1,0 +1,30 @@
+challenge:
+  name: "Future Gadget 04 - IBN74xx 2"
+
+  author: "0k4r1n"
+
+  category: hardware
+
+  difficulty: hard
+
+  description: The IBN74xx circuit has gone rogue...
+    Its logic gates are out of sync with the timeline.
+    Okabe believes the key lies within the 74xx paths —
+    explore them carefully and restore causality.
+
+  wave: 2
+
+  flags:
+    - {
+        flag: "ghctf{H4rDwaR3_1s_H4rd_BuT_V3Ry_3aSYYY!!}",
+        case_sensitive: false,
+      }
+
+  need_deploy: false
+
+  topics:
+    - coding
+
+  tags:
+    - hardware
+    - logic analyzer

@@ -1,0 +1,10 @@
+services:
+  ssh-vuln:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: ssh-user-enum
+    ports:
+      - "13502:22"
+    restart: unless-stopped

@@ -1,0 +1,14 @@
+challenge:
+  name: "The Undertaker"
+  author: "0x_ax1m"
+  category: forensics
+  difficulty: meduim
+  description: someone tried to send a file, but he doesn't know that we are already familiar with the linux Undertaker. so do u know how to exhume ? and to find the open cemetery ?
+  wave: 1
+  need_deploy: false
+  flags:
+    - { flag: "ghctf{T0mB_1s_Th3_Und3rT4k3r}", case_sensitive: true }
+  topics:
+    - Steganography, tomb
+  tags:
+    - forensics

@@ -1,0 +1,14 @@
+challenge:
+  name: "signla"
+  author: "0x_ax1m"
+  category: forensics
+  difficulty: easy
+  description: just wanna login.
+  wave: 1
+  need_deploy: false
+  flags:
+    - { flag: "ghctf{1_ju5t_w4nn4_l0g1n}", case_sensitive: true }
+  topics:
+    - network analysis, forensics, web
+  tags:
+    - forensics

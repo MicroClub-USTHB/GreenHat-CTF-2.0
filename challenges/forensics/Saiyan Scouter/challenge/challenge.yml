@@ -1,0 +1,25 @@
+challenge:
+  name: "Saiyan Scouter" # Challenge name
+
+  author: "Mawsis" # Author of the challenge
+
+  category: forensics # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+  difficulty: easy # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+  description: Saiyans like to compare their power by pride.  Find all powers. # Description of the challenge
+
+  flags: # Flags for the challenge
+    - { flag: "ghctf{s41yans_4r3_4lger1an5!!}", case_sensitive: true } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+  need_deploy: false # Whether the challenge needs to be deployed or not
+
+  topics: # Topics are used to categorize challenges and can be used for filtering
+    - forensics
+
+  tags: # Tags are used to categorize challenges and can be used for filtering
+    - forensics
+    - disk
+  wave: 3
+
+deploy: null

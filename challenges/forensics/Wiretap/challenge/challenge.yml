@@ -1,0 +1,28 @@
+challenge:
+    name: "Wiretap"
+
+    author: "!mario"
+
+    category: forensics # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+    difficulty: medium
+
+    description:
+        FBI intercepted suspicious network traffic from a target's mobile device during surveillance operations.
+        Analysts detected encrypted multimedia transmissions but need help identifying the content for the investigation report.
+        can you decrypt the media files and uncover the suspect's activities?
+
+    wave: 1 # Deployment wave number
+    flags:
+        - {
+              flag: "ghctf{what was the suspect listening to}",
+              case_sensitive: true,
+          }
+
+    need_deploy: false
+
+    topics:
+        - Digital Forensics
+
+    tags:
+        - forensics

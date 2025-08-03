@@ -1,0 +1,15 @@
+name: Off_By_Slash 
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile 
+
+    environment:
+      - PORT=80
+
+    ports: 
+      - "12321:80"
+
+    restart: unless-stopped

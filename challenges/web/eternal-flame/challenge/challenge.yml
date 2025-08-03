@@ -1,0 +1,36 @@
+challenge:
+  name: "Eternal Flame"
+
+  author: "zeref"
+
+  category: web
+
+  difficulty: easy
+
+  description: |
+    Welcome to the Digital Islamic Library - Maktabat Al-Hikmah.
+
+    Our scholars have preserved centuries of knowledge in the cloud. The head librarian, 
+    Sheikh Abdullah, has hidden a precious manuscript in the eternal flame of knowledge.
+
+    Can you find the hidden wisdom?
+
+  wave: 3 # Deployment wave number
+
+  flags:
+    - {
+        flag: "ghctf{th3_3t3rn4l_fl4m3_r3v34ls_h1dd3n_w1sd0m}",
+        case_sensitive: true,
+      }
+
+  need_deploy: true
+
+  topics:
+    - Web
+
+  tags:
+    - web
+
+deploy:
+  port: 12389
+  subdomain: eternal-flame

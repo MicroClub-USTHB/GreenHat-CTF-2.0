@@ -1,0 +1,23 @@
+challenge:
+  name: "RSA" # Challenge name
+
+  author: "5h4rkoo" # Author of the challenge
+
+  category: crypto # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+  difficulty: easy # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+  description: Got p, q, n, e, c. No excuses. # Description of the challenge
+
+  wave: 1 # Deployment wave number
+
+  flags: # Flags for the challenge
+    - { flag: "ghctf{RSA_1s_E4sy_Wh3n_Y0u_H4v3_p_q}", case_sensitive: true } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+  need_deploy: false # Whether the challenge needs to be deployed or not
+
+  topics: # Topics are used to categorize challenges and can be used for filtering
+    - crypto
+
+  tags: # Tags are used to categorize challenges and can be used for filtering
+    - crypto

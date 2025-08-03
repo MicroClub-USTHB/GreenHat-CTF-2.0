@@ -1,0 +1,28 @@
+challenge:
+  name: "Pwn Blinder"
+
+  author: "Younesfdj"
+
+  category: pwn
+
+  difficulty: easy
+
+  description: Welcome to the Pwn Blinders gang.
+
+  wave: 1
+
+  flags:
+    - { flag: "ghctf{bl1nd_pwn...}", case_sensitive: true }
+
+  need_deploy: true
+
+  topics:
+    - Blind Pwn
+
+  tags:
+    - Blind Pwns
+
+deploy:
+  port: 12602
+  subdomain: pwn-blinders
+  tcp: true # Indicates that this challenge uses TCP for communication

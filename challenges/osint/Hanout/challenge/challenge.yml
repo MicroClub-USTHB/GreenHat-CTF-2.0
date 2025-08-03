@@ -1,0 +1,22 @@
+challenge:
+  name: "Hanout"
+
+  author: "!mario"
+
+  category: osint
+  difficulty: easy
+
+  description: "terrorist leaked their shop on telegram and they got caught , can you get the shop name? flag format : ghctf{ShopName}"
+
+  wave: 1
+
+  flags:
+    - { flag: "ghctf{LUCKP47}", case_sensitive: true }
+
+  need_deploy: false
+
+  topics:
+    - open source intelligence
+
+  tags:
+    - osint

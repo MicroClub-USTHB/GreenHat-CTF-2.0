@@ -1,0 +1,86 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fileshare-app
+  namespace: ctf-challenge
+  labels:
+    app: fileshare
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fileshare
+  template:
+    metadata:
+      labels:
+        app: fileshare
+    spec:
+      serviceAccountName: fileshare-sa
+      containers:
+        - name: fileshare
+          image: localhost:5000/fileshare-ctf:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          env:
+            - name: APP_ENV
+              value: 'production'
+            - name: DEBUG
+              value: 'false'
+          volumeMounts:
+            - name: db-secrets
+              mountPath: '/etc/secrets/db'
+              readOnly: true
+            - name: api-keys
+              mountPath: '/etc/secrets/api'
+              readOnly: true
+          resources:
+            requests:
+              memory: '64Mi'
+              cpu: '250m'
+            limits:
+              memory: '128Mi'
+              cpu: '500m'
+      volumes:
+        - name: db-secrets
+          secret:
+            secretName: database-credentials
+        - name: api-keys
+          secret:
+            secretName: api-keys
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fileshare-service
+  namespace: ctf-challenge
+spec:
+  selector:
+    app: fileshare
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: ClusterIP
+
+---
+# Expose via NodePort for CTF access
+apiVersion: v1
+kind: Service
+metadata:
+  name: fileshare-nodeport
+  namespace: ctf-challenge
+spec:
+  selector:
+    app: fileshare
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+      nodePort: 30080
+  type: NodePort
+
+
+

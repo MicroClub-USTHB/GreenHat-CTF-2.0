@@ -1,0 +1,31 @@
+challenge:
+  name: "Sh3llc0d1ng"
+
+  author: "Younesfdj"
+
+  category: pwn
+
+  difficulty: easy
+
+  description: A classic
+
+  wave: 2
+
+  flags:
+    - { flag: "ghctf{$h3llc0d1n6_1s_s0_8uch_fun}", case_sensitive: true }
+
+  need_deploy: true
+
+  topics:
+    - Binary Exploitation
+    - PWN
+    - Shellcoding
+
+  tags:
+    - Binary Exploitation
+    - PWN
+
+deploy:
+  port: 12605
+  subdomain: sh3llc0d1ng
+  tcp: true # Indicates that this challenge uses TCP for communication

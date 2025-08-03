@@ -1,0 +1,17 @@
+## just respecting the template
+
+name: secret-hunt
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: dockerfile
+
+    environment:
+      - PORT=5000
+
+    ports:
+      - "12323:5000"
+
+    restart: unless-stopped

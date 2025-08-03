@@ -1,0 +1,18 @@
+name: gss
+
+services:
+  challenge:
+    container_name: web-gss-app
+    build:
+      context: src/app
+      dockerfile: Dockerfile
+    ports:
+      - "12307:5000"
+  admin:
+    container_name: web-gss-admin
+    build:
+      context: src/admin
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - FLAG=ghctf{GSS_m34ns_Gr34t_S3cur1ty_Sc4m}

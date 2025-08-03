@@ -1,0 +1,20 @@
+challenge:
+  name: "Pedri"
+  author: "D4rk0o"
+  category: misc
+  difficulty: medium
+  description: |-
+    As hint: (Up-6iuwNzE-hyt-ReFwD) => (El-Maestro-del-Balon)
+
+    Broken link is part of the challenge
+    [https://docs.google.com/document/d/ht0ikBf4BPieIKcacAROs7gQ0eX_5TUNTcBrQWqArJNE/edit]
+
+  wave: 1
+  need_deploy: false
+  flags:
+    - { flag: "ghctf{p3dr1_r0t4t10n_m43str0_8}", case_sensitive: true }
+  topics:
+    - broken link
+    - vigenère cipher
+  tags:
+    - misc

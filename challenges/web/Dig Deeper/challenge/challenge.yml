@@ -1,0 +1,30 @@
+challenge:
+    name: "Dig Deeper" # Challenge name
+
+    author: "COn4n" # Author of the challenge
+
+    category: web # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+    difficulty: hard # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+    description: I think that surface level isn't enough for you, try to dig deeper. # Description of the challenge
+
+    wave: 2 # Deployment wave number
+
+    flags: # Flags for the challenge
+        - {
+              flag: "ghctf{oH_fin4L1y_y0u_DUg_dE3PeR_1N7o_fLA9_Sys7Em}",
+              case_sensitive: true,
+          } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+    need_deploy: true # Whether the challenge needs to be deployed or not
+
+    topics: # Topics are used to categorize challenges and can be used for filtering
+        - web development
+
+    tags: # Tags are used to categorize challenges and can be used for filtering
+        - web
+
+deploy:
+    port: 12308
+    subdomain: dig-deeper

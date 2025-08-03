@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Interface</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #00FF00;           
+            font-family: 'Courier New', Courier, monospace; 
+            font-size: 16px;
+            padding: 20px;
+        }
+        h1 {
+            color: #00FF00;
+            border-bottom: 1px solid #00FF00;
+            padding-bottom: 5px;
+        }
+
+        .cursor {
+            display: inline-block;
+            background-color: #00FF00;
+            width: 10px;
+            height: 18px;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { background-color: transparent }
+            50% { background-color: #00FF00; }
+        }
+    </style>
+</head>
+<body>
+    <h1>SECURE VAULT INTERFACE v2.0</h1>
+    <p>> STATUS: System nominal. All connections secure.</p>
+    <p>> INFO: Previous versions have been permanently wiped from memory.</p>
+    <p>> INFO: No legacy artifacts remain.</p>
+    <p>> WAITING FOR COMMAND...<span class="cursor"></span></p>
+</body>
+</html>

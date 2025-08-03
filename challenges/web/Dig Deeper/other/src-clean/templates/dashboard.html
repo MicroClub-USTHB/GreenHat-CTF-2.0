@@ -1,0 +1,353 @@
+{% extends "base.html" %} {% block title %}Dashboard - SecureApp{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-lg-3 mb-4">
+      <div class="sidebar p-4">
+        <div class="profile-card text-center mb-4">
+          <i class="fas fa-user-circle fa-3x mb-3"></i>
+          <h5 id="userFullName">Loading...</h5>
+          <p id="userEmail" class="mb-2">Loading...</p>
+          <span id="userRole" class="admin-badge" style="display: none"
+            >Admin</span
+          >
+        </div>
+
+        <nav class="nav flex-column">
+          <a class="nav-link active" href="#" onclick="showSection('profile')">
+            <i class="fas fa-user me-2"></i>Profile
+          </a>
+          <a class="nav-link" href="#" onclick="showSection('articles')">
+            <i class="fas fa-file-alt me-2"></i>My Articles
+          </a>
+          <a class="nav-link" href="#" onclick="showSection('create-article')">
+            <i class="fas fa-plus me-2"></i>Create Article
+          </a>
+          <a class="nav-link text-danger" href="#" onclick="logout()">
+            <i class="fas fa-sign-out-alt me-2"></i>Logout
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-lg-9">
+      <div class="main-content">
+        <!-- Profile Section -->
+        <div id="profile-section" class="content-section">
+          <h3><i class="fas fa-user me-2"></i>User Profile</h3>
+          <hr />
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Profile Information</h5>
+                  <div id="profileInfo">
+                    <p>
+                      <strong>Full Name:</strong>
+                      <span id="profileFullName">Loading...</span>
+                    </p>
+                    <p>
+                      <strong>Email:</strong>
+                      <span id="profileEmail">Loading...</span>
+                    </p>
+                    <p>
+                      <strong>User ID:</strong>
+                      <span id="profileId">Loading...</span>
+                    </p>
+                    <p>
+                      <strong>Role:</strong>
+                      <span id="profileRole">Loading...</span>
+                    </p>
+
+                    <p>
+                      <strong> Created At:</strong>
+                      <span id="profileCreatedAt">Loading...</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Update Bio</h5>
+                  <form id="bioForm">
+                    <div class="mb-3">
+                      <label for="bio" class="form-label">Bio</label>
+                      <textarea
+                        class="form-control"
+                        id="bio"
+                        name="bio"
+                        rows="4"
+                        placeholder="Tell us about yourself..."
+                      ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      <i class="fas fa-save me-2"></i>Update Bio
+                    </button>
+                  </form>
+                  <div id="bioDisplay" class="mt-3">
+                    <h6>Current Bio:</h6>
+                    <div id="bioContent" class="p-3 bg-light rounded">
+                      No bio set yet.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Articles Section -->
+        <div
+          id="articles-section"
+          class="content-section"
+          style="display: none"
+        >
+          <h3><i class="fas fa-file-alt me-2"></i>My Articles</h3>
+          <hr />
+          <div id="articlesContainer">
+            <!-- Articles will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Create Article Section -->
+        <div
+          id="create-article-section"
+          class="content-section"
+          style="display: none"
+        >
+          <h3><i class="fas fa-plus me-2"></i>Create New Article</h3>
+          <hr />
+
+          <div class="card">
+            <div class="card-body">
+              <form id="createArticleForm">
+                <div class="mb-3">
+                  <label for="articleTitle" class="form-label">Title</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="articleTitle"
+                    name="title"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="articleContent" class="form-label">Content</label>
+                  <textarea
+                    class="form-control"
+                    id="articleContent"
+                    name="content"
+                    rows="8"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save me-2"></i>Create Article
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script>
+  let currentUser = null;
+
+  // Check if user is logged in
+  function checkAuth() {
+    const token = getToken();
+    if (!token) {
+      window.location.href = "/login";
+      return false;
+    }
+    return true;
+  }
+
+  // Load user profile
+  async function loadProfile() {
+    try {
+      const response = await makeAuthenticatedRequest("/api/profile");
+      if (response.ok) {
+        currentUser = await response.json();
+        updateProfileDisplay();
+      } else {
+        toastr.error("Failed to load profile");
+        logout();
+      }
+    } catch (error) {
+      toastr.error("Error loading profile");
+      logout();
+    }
+  }
+
+  // Update profile display
+  function updateProfileDisplay() {
+    document.getElementById("userFullName").textContent = currentUser.full_name;
+    document.getElementById("userEmail").textContent = currentUser.email;
+    document.getElementById("profileFullName").textContent =
+      currentUser.full_name;
+    document.getElementById("profileEmail").textContent = currentUser.email;
+    document.getElementById("profileId").textContent = currentUser.id;
+    document.getElementById("profileRole").textContent = currentUser.is_admin
+      ? "Admin"
+      : "User";
+
+    document.getElementById("bioContent").innerHTML = currentUser.bio
+      ? currentUser.bio
+      : "No bio set yet.";
+
+    document.getElementById("profileCreatedAt").textContent = new Date(
+      currentUser.created_at
+    ).toLocaleDateString();
+
+    if (currentUser.is_admin) {
+      document.getElementById("userRole").style.display = "inline-block";
+    }
+  }
+
+  // Show/hide sections
+  function showSection(sectionName) {
+    // Hide all sections
+    document.querySelectorAll(".content-section").forEach((section) => {
+      section.style.display = "none";
+    });
+
+    // Remove active class from all nav links
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      link.classList.remove("active");
+    });
+
+    // Show selected section
+    document.getElementById(sectionName + "-section").style.display = "block";
+
+    // Add active class to clicked nav link
+    if (event) event.target.classList.add("active");
+
+    // Load section-specific data
+    if (sectionName === "articles") {
+      loadArticles();
+    }
+  }
+
+  // Load user articles
+  async function loadArticles() {
+    try {
+      const response = await makeAuthenticatedRequest("/api/my_articles");
+      if (response.ok) {
+        const data = await response.json();
+        displayArticles(data.articles);
+      } else {
+        toastr.error("Failed to load articles");
+      }
+    } catch (error) {
+      toastr.error("Error loading articles");
+    }
+  }
+
+  // Display articles
+  function displayArticles(articles) {
+    const container = document.getElementById("articlesContainer");
+    if (articles.length === 0) {
+      container.innerHTML =
+        '<p class="text-muted">No articles found. Create your first article!</p>';
+      return;
+    }
+
+    container.innerHTML = articles
+      .map(
+        (article) => `
+        <div class="article-card card">
+            <div class="card-body">
+                <h5 class="card-title">${article.title}</h5>
+                <p class="card-text">${article.content.substring(0, 150)}...</p>
+                <small class="text-muted">Created: ${new Date(
+                  article.created_at
+                ).toLocaleDateString()}</small>
+            </div>
+        </div>
+    `
+      )
+      .join("");
+  }
+
+  // Handle bio form submission
+  document
+    .getElementById("bioForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const response = await makeAuthenticatedRequest("/api/profile", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          toastr.success("Bio updated successfully!");
+
+          this.reset();
+        } else {
+          toastr.error(result.error);
+        }
+      } catch (error) {
+        toastr.error("Failed to update bio");
+      }
+    });
+
+  // Handle create article form submission
+  document
+    .getElementById("createArticleForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const response = await makeAuthenticatedRequest("/api/create_article", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          toastr.success(result.message);
+          this.reset();
+          showSection("articles");
+        } else {
+          toastr.error(result.error);
+        }
+      } catch (error) {
+        toastr.error("Failed to create article");
+      }
+    });
+
+  // Initialize dashboard
+  document.addEventListener("DOMContentLoaded", function () {
+    if (checkAuth()) {
+      loadProfile();
+    }
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,8 @@
+name: "cold-cash"
+
+services:
+  cold-cash:
+    build: .
+    ports:
+      - "12301:8080"
+    restart: always

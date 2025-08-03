@@ -1,0 +1,12 @@
+{
+    "name": "off_by_slash",
+    "version": "1.0.0",
+    "description": "off_by_slash",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "^4.18.2"
+    }
+}

@@ -1,0 +1,90 @@
+{% extends "base.html" %} {% block title %}Welcome - SecureApp{% endblock %} {%
+block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="text-center text-white mb-5">
+        <h1 class="display-4 fw-bold mb-4">
+          <i class="fas fa-shield-alt me-3"></i>Welcome to SecureApp
+        </h1>
+        <p class="lead fs-5">
+          A secure platform for managing your articles and data
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-body p-5">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="text-center">
+                <i class="fas fa-user-plus fa-3x text-primary mb-3"></i>
+                <h4>New User?</h4>
+                <p class="text-muted">
+                  Create your account and start managing your articles securely.
+                </p>
+                <a
+                  href="{{ url_for('register_page') }}"
+                  class="btn btn-primary btn-lg"
+                >
+                  <i class="fas fa-user-plus me-2"></i>Register Now
+                </a>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="text-center">
+                <i class="fas fa-sign-in-alt fa-3x text-success mb-3"></i>
+                <h4>Already a Member?</h4>
+                <p class="text-muted">
+                  Sign in to access your dashboard and manage your content.
+                </p>
+                <a
+                  href="{{ url_for('login_page') }}"
+                  class="btn btn-success btn-lg"
+                >
+                  <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-md-4 mb-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <i class="fas fa-lock fa-2x text-primary mb-3"></i>
+              <h5>Secure</h5>
+              <p class="text-muted">
+                Advanced security measures to protect your data
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <i class="fas fa-file-alt fa-2x text-success mb-3"></i>
+              <h5>Article Management</h5>
+              <p class="text-muted">
+                Create and manage your articles with ease
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <i class="fas fa-users fa-2x text-info mb-3"></i>
+              <h5>User Friendly</h5>
+              <p class="text-muted">
+                Intuitive interface for seamless experience
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

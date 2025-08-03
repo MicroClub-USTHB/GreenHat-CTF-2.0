@@ -1,0 +1,28 @@
+challenge:
+  name: "Unusual"
+
+  author: "Spinel99/Younesfdj"
+
+  category: pwn
+
+  difficulty: medium
+
+  description: There's definitely something unusual in this binary 
+
+  wave: 3
+
+  flags:
+    - { flag: "ghctf{W51t4bl3_R0_d4t4_53gm3nt}", case_sensitive: true }
+
+  need_deploy: true
+
+  topics:
+    - Binary Exploitation
+
+  tags:
+    - Binary Exploitation
+
+deploy:
+  port: 12607
+  subdomain: unusual
+  tcp: true # Indicates that this challenge uses TCP for communication

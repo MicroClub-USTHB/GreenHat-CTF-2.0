@@ -1,0 +1,23 @@
+challenge:
+  name: "Sus File" # Challenge name
+
+  author: "Mawsis" # Author of the challenge
+
+  category: forensics # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+  difficulty: medium # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+  description: Our intelligence agency has intercepted a suspicious image from a known informant. We believe it contains a multi-layered message that will lead us to crucial information about an upcoming operation. The informant is known for using creative hiding techniques. Can you follow the trail and piece together their complete message? # Description of the challenge
+
+  wave: 2 # Wave number for the challenge
+
+  flags: # Flags for the challenge
+    - { flag: "ghctf{5us_f1le}", case_sensitive: true } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+  need_deploy: false # Whether the challenge needs to be deployed or not
+
+  topics: # Topics are used to categorize challenges and can be used for filtering
+    - forensics
+
+  tags: # Tags are used to categorize challenges and can be used for filtering
+    - forensics

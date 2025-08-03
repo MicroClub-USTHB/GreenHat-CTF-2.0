@@ -1,0 +1,31 @@
+challenge:
+  name: "Ret 2 win"
+
+  author: "Younesfdj"
+
+  category: pwn
+
+  difficulty: easy
+
+  description: Welcome to your first buffer overflow, can you return to win ?
+
+  wave: 1
+
+  flags:
+    - { flag: "ghctf{$ucce$$fully_pwn3d_ret2win}", case_sensitive: true }
+
+  need_deploy: true
+
+  topics:
+    - Binary Exploitation
+    - PWN
+    - Buffer overflow
+
+  tags:
+    - Binary Exploitation
+    - PWN
+
+deploy:
+  port: 12604
+  subdomain: ret2win
+  tcp: true # Indicates that this challenge uses TCP for communication

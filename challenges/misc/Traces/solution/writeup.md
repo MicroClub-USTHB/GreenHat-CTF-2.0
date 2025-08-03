@@ -1,0 +1,4 @@
+## solution : 
+The reason why this is a hard challenge is beceause of it having multiple steps.
+upon examining the card, you will find a link to a proton drive with a password, that password is hidden in a zip file as a dtmf sound inside and image in the announcement. Once found and decoded using an online dtmf decoder u will find a hex string that translates to : 3vilB34rs$l3alamya which is the password of the proton drive.
+Now once opened the drive u will find an sql dump with some informations about the users most of them are fake except from the ones of the evil bear, which lead to a github repo with a readme, and from that repo the goal is to acces another private repo that has the flag through a fork 

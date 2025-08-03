@@ -1,0 +1,24 @@
+challenge:
+    name: "Future Gadget 02 - Divergence decoder"
+
+    author: "0k4r1n"
+
+    category: hardware
+
+    difficulty: easy
+
+    description: Kyoma has sent us a message from another world line — but it's not as simple as reading a text. All we have is a small gadget he left behind. It blinks. On. Off. On. Off. Repeating.
+
+    wave: 1
+
+    flags:
+        - { flag: "ghctf{w0r1d_1in3:0x2.615a2}", case_sensitive: false }
+
+    need_deploy: false
+
+    topics:
+        - coding
+
+    tags:
+        - hardware
+        - logic analyzer

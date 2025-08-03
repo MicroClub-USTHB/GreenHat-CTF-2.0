@@ -1,0 +1,26 @@
+challenge:
+  name: "not algerie telecom" # Challenge name
+
+  author: "!mario" # Author of the challenge
+
+  category: forensics # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+  difficulty: hard # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+  description: env ? hacker ? malicious events? # Description of the challenge
+
+  wave: 2 # Wave number for the challenge
+
+  flags: # Flags for the challenge
+    - { flag: "ghctf{Th3_Hacker_is_n0T_me_1_4m_b3tt3r}", case_sensitive: true } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+  need_deploy: false # Whether the challenge needs to be deployed or not
+
+  topics: # Topics are used to categorize challenges and can be used for filtering
+    - Digital Forensics
+
+  tags: # Tags are used to categorize challenges and can be used for filtering
+    - memory analysis , network analysis
+
+  links: # Links Shared with the challenge, can be used for additional resources or references
+    - "https://drive.google.com/file/d/1RzNNj3PgR7T1ASD-4MBgodDEpDRpajCa/view?usp=sharing" # Link to the challenge , external assets...

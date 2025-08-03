@@ -1,0 +1,29 @@
+challenge:
+  name: b0Mb!
+
+  author: M0uИ1R
+
+  category: misc
+
+  difficulty: easy
+
+  description: >
+    A former cybersecurity analyst—now missing under mysterious circumstances—left behind a strange encrypted archive.
+    It was uncovered on a long-abandoned government server.
+    Rumor has it the file contains a hidden message… one that was once used as part of the U.S. nuclear launch code.
+
+  wave: 3
+
+  flags:
+    - {
+        flag: "ghctf{wUt_d0_y0u_FEeL_ab0ut_Hav1ng_a_NucLeaR_weaP0n?}",
+        case_sensitive: true,
+      }
+
+  need_deploy: false
+
+  topics:
+    - Misc
+
+  tags:
+    - Misc

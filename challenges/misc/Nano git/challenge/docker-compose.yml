@@ -1,0 +1,9 @@
+name: nano-git
+
+services:
+  app:
+    build: .
+    ports:
+      - "13500:1337"
+
+    restart: unless-stopped

@@ -1,0 +1,22 @@
+challenge:
+    name: "BabyGo" # Challenge name
+
+    author: "Spinel99" # Author of the challenge
+
+    category: reverse # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+    difficulty: easy # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+    description: Are you ready to go ? # Description of the challenge
+    wave: 2
+
+    flags: # Flags for the challenge
+        - { flag: "ghctf{Y35_Ur_R34dy_T0_G0_fce45d}", case_sensitive: true } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+    need_deploy: false # Whether the challenge needs to be deployed or not
+
+    topics: # Topics are used to categorize challenges and can be used for filtering
+        - reverse engineering
+
+    tags: # Tags are used to categorize challenges and can be used for filtering
+        - reverse engineering

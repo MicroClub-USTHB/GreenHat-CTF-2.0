@@ -1,0 +1,7 @@
+## Solution:
+Based on the tweets of 3ami Said and the picture he posted on instagram you can narrow it down to the right hotel 
+There are diffrent intended solutions on how to solve this challenge 
+But based on the timing of his tweets and the description we can find that 3ami sa3id went to an agriculteral fair that's held in Libramonte belgium on thhe 25th of july, If we go to google mpas and check the hotel's nearby we can find the hotel he's staying at (which according to his tweet is a 30 min walk away), by clicking on the fair's location and selecting nearby hotels : `Avenue Hotel`, after tha in it's review we find that 3ami sa3id forgot the flag in a bakery nearby (he provded a picture), you can find it by walking with street view or by just simply reverse searching the image. 
+When checking the bakery's review we found 3ami sa3id's review that contains a pastebin https://pastebin.com/yR8Pm6EC (its in base64 beceause google maps doesnt allow links in reviews T^T).   
+The pastebin has the flag encrypted in emoji with the password being his sons name and birthdayTo retrieve those, according to 3ami sa3id's tweets we can see that he likes to organize his date in google calender, we als find in his instagram that he accidently posted a screenshot that has his email. 
+There is an osint tool called https://epieos.com/ that can get you links of google archive, and google calendar of emails, so we use that to get acces to his google calender where we can find his son's name and birthdate. 

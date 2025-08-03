@@ -1,0 +1,29 @@
+challenge:
+  name: "Memory Overdrive"
+
+  author: "0k4r1n"
+
+  category: hardware
+
+  difficulty: hard
+
+  description:
+    "local's Arduino prototype holds data from the smart home project.
+    Romaissa accidentally locked the screen — only the arduino will reveal what was left behind.
+    Hack into the board, uncover the memory layout, and find the hidden message."
+
+  wave: 1
+
+  flags:
+    - { flag: "ghctf{firmw4re_r3v34led}", case_sensitive: false }
+
+  need_deploy: false
+
+  topics:
+    - reverse engineering
+
+  tags:
+    - hardware
+    - reverse engineering
+    - arduino
+    - firmware

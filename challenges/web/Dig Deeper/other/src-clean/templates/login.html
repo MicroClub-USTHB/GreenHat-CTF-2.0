@@ -1,0 +1,93 @@
+{% extends "base.html" %} {% block title %}Login - SecureApp{% endblock %} {%
+block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-5">
+      <div class="text-center text-white mb-4">
+        <h2 class="fw-bold">
+          <i class="fas fa-sign-in-alt me-2"></i>Welcome Back
+        </h2>
+        <p>Sign in to your SecureApp account</p>
+      </div>
+
+      <div class="card">
+        <div class="card-body p-5">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                required
+              />
+            </div>
+
+            <div class="mb-4">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 mb-3">
+              <i class="fas fa-sign-in-alt me-2"></i>Sign In
+            </button>
+
+            <div class="text-center">
+              <p class="mb-0">
+                Don't have an account?
+                <a
+                  href="{{ url_for('register_page') }}"
+                  class="text-decoration-none"
+                  >Register here</a
+                >
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script>
+  document
+    .getElementById("loginForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const response = await fetch("/api/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          setToken(result.token);
+          toastr.success("Login successful!");
+          setTimeout(() => {
+            window.location.href = "/dashboard";
+          }, 1500);
+        } else {
+          toastr.error(result.error);
+        }
+      } catch (error) {
+        toastr.error("Login failed. Please try again.");
+      }
+    });
+</script>
+{% endblock %}

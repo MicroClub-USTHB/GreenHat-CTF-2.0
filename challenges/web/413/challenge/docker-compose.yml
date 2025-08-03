@@ -1,0 +1,37 @@
+name: "challenge-413"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile # Use the Dockerfile in the current directory
+
+    environment: # Environment variables for the app
+      - PORT=8000
+      - FLAG=ghctf{7HIs_!S_tYpE_cONfus!On_4tT4ck}
+
+    restart: unless-stopped # Restart policy for the container
+
+    networks: # Connect the app service to the proxy network
+      - proxy-network
+
+  reverse-proxy:
+    image: nginx:latest # Use the latest Nginx image
+
+    ports: # Map port 80 of the container to port 80 on the host
+      - "12310:80"
+
+    volumes: # Mount the Nginx configuration file
+      - ./conf/nginx.conf:/etc/nginx/nginx.conf
+
+    depends_on: # Ensure the app service is started before the reverse proxy
+      - app
+
+    restart: unless-stopped # Restart policy for the container
+
+    networks: # Connect the reverse proxy to the proxy network
+      - proxy-network
+
+networks:
+  proxy-network: # Define a network for the reverse proxy
+    driver: bridge # Use the bridge driver for the network

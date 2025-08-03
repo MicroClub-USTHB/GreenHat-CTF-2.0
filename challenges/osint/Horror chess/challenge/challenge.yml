@@ -1,0 +1,26 @@
+challenge:
+    name: "Horror chess" # Challenge name
+
+    author: "Bahae" # Author of the challenge
+
+    category: osint # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+    difficulty: medium # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+    description: After the opening... The match was really a horror movie 🥶, I wonder who are playing and when?" https://lichess.org/3rBLFyAq  I am curious about this AnonymousXAnonymous2025... # Description of the challenge
+
+    wave: 3
+
+    flags: # Flags for the challenge
+        - {
+              flag: "ghctf{LeelaChessZeroXStockfish112020}",
+              case_sensitive: false,
+          } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+    need_deploy: false # Whether the challenge needs to be deployed or not
+
+    topics: # Topics are used to categorize challenges and can be used for filtering
+        - Osint
+
+    tags: # Tags are used to categorize challenges and can be used for filtering
+        - osint

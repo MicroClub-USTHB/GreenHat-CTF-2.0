@@ -1,0 +1,15 @@
+{
+  "name": "413",
+  "version": "1.0.0",
+  "description": "CTF challenge",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "type": "module",
+  "author": "COn4n",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

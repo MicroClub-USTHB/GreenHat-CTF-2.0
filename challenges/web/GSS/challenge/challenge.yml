@@ -1,0 +1,18 @@
+challenge:
+  name: "GSS"
+  author: "D4rk0o"
+  category: web
+  difficulty: easy
+  description: "A 'Super Secure' URL shortener. Report any suspicious URLs to our admin for review."
+  wave: 3 
+  need_deploy: true
+  flags:
+    - { flag: "ghctf{GSS_m34ns_Gr34t_S3cur1ty_Sc4m}", case_sensitive: true }
+  topics:
+    - xss
+  tags:
+    - web
+
+deploy:
+  port: 12307
+  subdomain: gss

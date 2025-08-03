@@ -1,0 +1,8 @@
+#extracting just SBC protocol frames
+tshark -r challenge.pcapng -Y "sbc" -T json -x > data.json
+
+
+#after filtering the SBC packets, and extract the raw frame data we turn the sbc frames into .wav 
+ffmpeg -i output.sbc flag.wav
+
+flag : ghctf{birds_of_a_feather}

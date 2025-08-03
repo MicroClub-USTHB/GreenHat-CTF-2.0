@@ -1,0 +1,31 @@
+challenge:
+  name: "Kol 3otla .. ?"
+
+  author: "Younesfdj"
+
+  category: pwn
+
+  difficulty: easy
+
+  description: Kol 3otla .. ?
+
+  wave: 1
+
+  flags:
+    - { flag: "ghctf{k0l_33307l4_f1h4_buff3r_0v3rfl0w}", case_sensitive: true }
+
+  need_deploy: true
+
+  topics:
+    - Binary Exploitation
+    - PWN
+    - Buffer overflow
+
+  tags:
+    - Binary Exploitation
+    - PWN
+
+deploy:
+  port: 12601
+  subdomain: kol-3otla
+  tcp: true # Indicates that this challenge uses TCP for communication

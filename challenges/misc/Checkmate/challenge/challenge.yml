@@ -1,0 +1,23 @@
+challenge:
+    name: "Checkmate"
+
+    author: "0k4r1n"
+
+    category: misc
+
+    difficulty: easy
+
+    description: Maybe the moves are more than just strategy.
+
+    wave: 1
+
+    flags:
+        - { flag: "ghctf{ch3ckm4te_g00d_g4m3}", case_sensitive: true }
+
+    need_deploy: false
+
+    topics:
+        - Digital Forensics
+
+    tags:
+        - forensics

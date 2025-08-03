@@ -1,0 +1,26 @@
+challenge:
+  name: "Future Gadget 03 - IBN74xx"
+
+  author: "0k4r1n"
+
+  category: hardware
+
+  difficulty: medium
+
+  description: The IBN74xx started sending scrambled binary sequences...
+    Could this be related to the mysterious Gray code or the CIRCUITVERSE?
+
+  wave: 2
+
+  flags:
+    - { flag: "ghctf{th4ts_why_strm_tf1d3k}", case_sensitive: false }
+
+  need_deploy: false
+
+  topics:
+    - Digital Logic
+    - Embedded Systems
+
+  tags:
+    - hardware
+    - binary analysis

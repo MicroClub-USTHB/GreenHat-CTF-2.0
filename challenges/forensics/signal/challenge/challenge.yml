@@ -1,0 +1,14 @@
+challenge:
+  name: "signal"
+  author: "0x_ax1m"
+  category: forensics
+  difficulty: meduim
+  description: haha i captured the signal that was going to my grandpa's TV.
+  wave: 2
+  need_deploy: false
+  flags:
+    - { flag: "ghctf{55Tv_0Ld_5ign4L}", case_sensitive: true }
+  topics:
+    - audio Steganography, forensics
+  tags:
+    - forensics

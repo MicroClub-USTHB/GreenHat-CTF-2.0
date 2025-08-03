@@ -1,0 +1,42 @@
+challenge:
+  name: "hash1" # Challenge name
+
+  author: "5h4rkoo" # Author of the challenge
+
+  category: crypto # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+  difficulty: medium # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+  description:
+    "I hashed 3 more of my most secret passwords with SHA256. To make the passwords even more unbreakable, I mutated each one according to the following rules:
+
+    Password 1: Append 3 characters at the end, in the following order: a special character, a number, and an uppercase letter
+    Password 2: A typo was made when typing the password. Consider a typo to mean a single-character deletion from the password
+    Password 3: Make the password leet (and since I'm nice, I'll tell you a hint: only vowels are leetified!)
+    I'm confident you'll never be able to crack my hashes now! Do your worst!
+
+    5e09f66ae5c6b2f4038eba26dc8e22d8aeb54f624d1d3ed96551e900dac7cf0d
+    fb58c041b0059e8424ff1f8d2771fca9ab0f5dcdd10c48e7a67a9467aa8ebfa8
+    4ac53d04443e6786752ac78e2dc86f60a629e4639edacc6a5937146f3eacc30f
+
+    Use the rockyou.txt wordlist.
+
+    Flag format: ghctf{pass1_pass2_pass3}" # Description of the challenge
+
+  wave: 1 # Deployment wave number
+
+  flags: # Flags for the challenge
+    - {
+        flag: "ghctf{hyepsi^4B_thecowsaysmo_unf0rg1v@bl3}",
+        case_sensitive: true,
+      } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+  need_deploy: false # Whether the challenge needs to be deployed or not
+
+  topics: # Topics are used to categorize challenges and can be used for filtering
+    - crypto
+    - hash
+
+  tags: # Tags are used to categorize challenges and can be used for filtering
+    - crypto
+    - hash

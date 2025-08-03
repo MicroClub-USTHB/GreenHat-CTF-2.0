@@ -1,0 +1,23 @@
+challenge:
+    name: "Ey Ay"
+
+    author: "camatchoo"
+
+    category: osint
+
+    difficulty: easy
+
+    description: Hada rah sarilo kima elma9am elshahid .... Can you find its exact coordinates ?? flag format is ghctf{latitude_longitude} ( example ghctf{25.761_80.191} )
+
+    wave: 3
+
+    flags:
+        - { flag: "ghctf{36.180_1.927}", case_sensitive: true }
+
+    need_deploy: false
+
+    topics:
+        - Geosint
+
+    tags:
+        - Osint

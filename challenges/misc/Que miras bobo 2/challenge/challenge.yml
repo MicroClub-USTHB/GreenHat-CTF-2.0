@@ -1,0 +1,25 @@
+challenge:
+  name: "Que miras bobo 2"
+
+  author: "D4rk0o"
+
+  category: misc
+
+  difficulty: medium
+
+  description: |
+    Que mirás, bobo? Apparently, nothing! Messi's skill was so immense, it seems he quantized right out of existence. Can you bring him (and the flag!) back from the quanta realm? Good luck!
+
+  wave: 2
+
+  flags:
+    - { flag: "ghctf{C4m3r44_w00o0ow00o0}", case_sensitive: true }
+
+  need_deploy: false
+
+  topics:
+    - Stegano
+
+  tags:
+    - Misc
+    - Stegano

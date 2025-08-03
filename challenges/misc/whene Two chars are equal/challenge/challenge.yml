@@ -1,0 +1,20 @@
+challenge:
+  name: "when Two chars are equal"
+  author: "0x_ax1m"
+  category: misc
+  difficulty: meduim
+  description: we have a pin checker, do u know how to brute force BUT in an elegenat way ?, submit the pin in the instance and get the flag.
+  wave: 1
+  need_deploy: true
+  flags:
+    - { flag: "ghctf{5ide_ch4nn3l_4tt4ck}", case_sensitive: true }
+  topics:
+    - misc, forensics
+  tags:
+    - misc
+
+deploy:
+  port: 13501
+  subdomain: two-chars
+  tcp: true # Indicates that this challenge uses TCP for communication
+

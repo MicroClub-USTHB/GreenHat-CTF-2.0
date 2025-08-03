@@ -1,0 +1,2 @@
+- old tv's uses sstv signal 
+- look for a decoder from sstv to image , why image ? cuz its a tv duuuh

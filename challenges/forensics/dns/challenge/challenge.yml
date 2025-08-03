@@ -1,0 +1,14 @@
+challenge:
+  name: "dns"
+  author: "0x_ax1m"
+  category: forensics
+  difficulty: easy
+  description: someone tried to exfiltrate with when of the stupedist way ever.
+  wave: 2
+  need_deploy: false
+  flags:
+    - { flag: "ghctf{w1r354rk_15_Gr34T}", case_sensitive: true }
+  topics:
+    - network analysis, exfiltrate, forensics
+  tags:
+    - forensics

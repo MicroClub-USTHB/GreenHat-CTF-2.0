@@ -1,0 +1,23 @@
+challenge:
+  name: "The Goat" # Challenge name
+
+  author: "5h4rkoo" # Author of the challenge
+
+  category: crypto # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+  difficulty: medium # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+  description: Who is the greatest footballer of all time? Encrypted Flag  }WLCMNCUHIWLCMNCUHIWLCMNCUHIWLQK{ybcuu # Description of the challenge
+
+  wave: 1 # Wave number for the challenge
+
+  flags: # Flags for the challenge
+    - { flag: "ghctf{SIUUUUUUUUUUUUUUUUUUUUUUUUUUUUU}", case_sensitive: true } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+  need_deploy: false # Whether the challenge needs to be deployed or not
+
+  topics: # Topics are used to categorize challenges and can be used for filtering
+    - crypto
+
+  tags: # Tags are used to categorize challenges and can be used for filtering
+    - crypto

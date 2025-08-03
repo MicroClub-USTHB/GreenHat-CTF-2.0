@@ -1,0 +1,2 @@
+## Solution :
+Reverse search the image and you will find that its a tobbacco barn from kentucky (kentucky has 984 barns like that hhh ^^), the name of the challenge `Saddam hussein` should help narrow it down to a place in Kentucy called Bagdad (you know saddam hussein -> irak -> bagdad), the rest is geoguessing. 

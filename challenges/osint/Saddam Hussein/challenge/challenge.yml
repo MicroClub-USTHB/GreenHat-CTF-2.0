@@ -1,0 +1,24 @@
+challenge:
+    name: "Saddam Hussein"
+
+    author: "camatchoo"
+
+    category: osint
+
+    difficulty: medium
+
+    description: can u find me the exact coordinates of this place ? ( example ghctf{25.761_-8.191} )
+
+    wave: 2
+
+    flags:
+        - { flag: "ghctf{38.266_-85.056}", case_sensitive: true }
+
+    need_deploy: false
+
+    topics:
+        - Osint
+        - Geosint
+
+    tags:
+        - Osint

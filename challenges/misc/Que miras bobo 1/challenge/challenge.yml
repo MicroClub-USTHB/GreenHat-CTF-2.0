@@ -1,0 +1,25 @@
+challenge:
+  name: "Que miras bobo 1"
+
+  author: "Younesfdj"
+
+  category: misc
+
+  difficulty: easy
+
+  description: Qué mirás, bobo? Qué mirás, bobo?
+    Andá p'allá, bobo. Andá p'allá, bobo
+
+  wave: 1
+
+  flags:
+    - { flag: "ghctf{r0ck1ng_1t_w17h_st3gs33kkkkk}", case_sensitive: true }
+
+  need_deploy: false
+
+  topics:
+    - Stegano
+
+  tags:
+    - Stegano
+    - Misc

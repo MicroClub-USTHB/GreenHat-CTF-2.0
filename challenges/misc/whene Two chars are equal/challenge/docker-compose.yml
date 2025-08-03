@@ -1,0 +1,9 @@
+# docker-compose.yml
+version: "3.8"
+
+services:
+  pin_checker:
+    build: .
+    container_name: pin_checker_ctf
+    ports:
+      - "13501:1337"

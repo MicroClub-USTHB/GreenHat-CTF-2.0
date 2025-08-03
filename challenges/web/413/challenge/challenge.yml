@@ -1,0 +1,27 @@
+challenge:
+  name: "413" # Challenge name
+
+  author: "COn4n" # Author of the challenge
+
+  category: web # Category of the challenge, can be one of: web, pwn, crypto, reverse, misc, forensics, osint
+
+  difficulty: easy # Difficulty of the challenge, can be one of: easy, medium, hard, extreme
+
+  description: oh I hate this limits, how to bypass them  # Description of the challenge
+
+  wave: 1 # Wave number for the challenge
+
+  flags: # Flags for the challenge
+    - { flag: "ghctf{7HIs_!S_tYpE_cONfus!On_4tT4ck}", case_sensitive: true } # Example flag, case_sensitive indicates if the flag is case sensitive
+
+  need_deploy: true # Whether the challenge needs to be deployed or not
+
+  topics: # Topics are used to categorize challenges and can be used for filtering
+    - web development
+
+  tags: # Tags are used to categorize challenges and can be used for filtering
+    - web
+
+deploy:
+  port: 12310
+  subdomain: 413
